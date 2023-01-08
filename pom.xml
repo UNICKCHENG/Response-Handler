@@ -11,7 +11,7 @@
     <url>https://github.com/UNICKCHENG/Response-Handler</url>
 
     <properties>
-        <revision>0.0.1-SNAPSHOT</revision>
+        <revision>0.0.1</revision>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -48,11 +48,23 @@
         <developerConnection>scm:git@github.com:unickcheng/response-handler.git</developerConnection>
     </scm>
 
-    <distributionManagement>
-        <repository>
-            <id>response-handler</id>
-            <name>Response-Handler</name>
-            <url>https://maven.pkg.github.com/UNICKCHENG/Response-Handler</url>
-        </repository>
-    </distributionManagement>
+    <profiles>
+        <profile>
+            <id>github</id>
+            <activation>
+                <property>
+                    <name>useGitHubPackages</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <distributionManagement>
+                <repository>
+                    <id>response-handler</id>
+                    <name>Response-Handler</name>
+                    <url>https://maven.pkg.github.com/unickcheng/response-handler</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+
 </project>
