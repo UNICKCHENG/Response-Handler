@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <parent>
+        <artifactId>response-handler</artifactId>
+        <groupId>com.github.unickcheng</groupId>
+        <version>${revision}</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>response-handler-dependencies</artifactId>
+    <packaging>pom</packaging>
+    <description>Response-Handler Dependencies</description>
+
+    <properties>
+        <response-handler-spring-boot.version>2.7.4</response-handler-spring-boot.version>
+        <response-handler-lombok.versin>1.18.24</response-handler-lombok.versin>
+        <response-handler-swagger.version>1.6.14</response-handler-swagger.version>
+        <response-handler-knife4j.versin>3.0.3</response-handler-knife4j.versin>
+        <response-handler-hutool.version>5.8.9</response-handler-hutool.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter</artifactId>
+                <version>${response-handler-spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <scope>test</scope>
+                <version>${response-handler-spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${response-handler-spring-boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-autoconfigure</artifactId>
+                <version>${response-handler-spring-boot.version}</version>
+            </dependency>
+            <!-- validation -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-validation</artifactId>
+                <version>${response-handler-spring-boot.version}</version>
+            </dependency>
+            <!-- lombok. IDEA needs to download this plugin from Plugins first -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${response-handler-lombok.versin}</version>
+            </dependency>
+            <!-- swagger 3 -->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-ui</artifactId>
+                <version>${response-handler-swagger.version}</version>
+            </dependency>
+            <!-- Knife4j. https://github.com/xiaoymin/swagger-bootstrap-ui -->
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-springdoc-ui</artifactId>
+                <version>${response-handler-knife4j.versin}</version>
+            </dependency>
+            <!-- hateoas restful api -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-hateoas</artifactId>
+                <version>${response-handler-spring-boot.version}</version>
+            </dependency>
+            <!-- devtools 实现热加载 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-devtools</artifactId>
+                <version>${response-handler-spring-boot.version}</version>
+                <optional>true</optional>
+            </dependency>
+            <!-- 小而全的Java工具类库 -->
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${response-handler-hutool.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
