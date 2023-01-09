@@ -20,9 +20,38 @@
     </properties>
 
     <modules>
-        <module>response-handler-dependencies</module>
         <module>response-handler-core</module>
-        <module>response-handler-test</module>
     </modules>
+
+    <licenses>
+        <license>
+            <name>Apache 2</name>
+            <url>https://cdn.jsdelivr.net/gh/unickcheng/response-handler@latest/LICENSE</url>
+            <distribution>repo</distribution>
+            <comments>A business-friendly OSS license</comments>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>zhicheng</name>
+            <email>hi@unickcheng.cc</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <tag>main</tag>
+        <url>https://github.com/unickcheng/response-handler.git</url>
+        <connection>scm:git@github.com:unickcheng/response-handler.git</connection>
+        <developerConnection>scm:git@github.com:unickcheng/response-handler.git</developerConnection>
+    </scm>
+
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>Response-Handler</name>
+            <url>https://maven.pkg.github.com/UNICKCHENG/Response-Handler</url>
+        </repository>
+    </distributionManagement>
 
 </project>

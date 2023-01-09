@@ -13,6 +13,6 @@ jobs:
           distribution: 'adopt'
 
       - name: Deploy to GitHub
-        run: mvn --batch-mode -DuseGitHubPackages=true deploy
+        run: mvn deploy -f release_pom.xml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
