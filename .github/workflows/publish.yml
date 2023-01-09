@@ -13,6 +13,6 @@ jobs:
           distribution: 'adopt'
 
       - name: Deploy to GitHub
-        run: mvn deploy -f release_pom.xml
+        run: mvn clean deploy -am -pl response-handler-core
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
