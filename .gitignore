@@ -1,8 +1,6 @@
 .obsidian
 target/
-!.mvn/wrapper/maven-wrapper.jar
-!**/src/main/**/target/
-!**/src/test/**/target/
+maven-repo/
 
 ### IntelliJ IDEA ###
 .idea/
