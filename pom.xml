@@ -48,11 +48,19 @@
         <developerConnection>scm:git@github.com:unickcheng/response-handler.git</developerConnection>
     </scm>
 
+<!--    <distributionManagement>-->
+<!--        <repository>-->
+<!--            <id>github</id>-->
+<!--            <name>Response-Handler</name>-->
+<!--            <url>https://maven.pkg.github.com/UNICKCHENG/Response-Handler</url>-->
+<!--        </repository>-->
+<!--    </distributionManagement>-->
+
     <distributionManagement>
         <repository>
-            <id>github</id>
-            <name>Response-Handler</name>
-            <url>https://maven.pkg.github.com/UNICKCHENG/Response-Handler</url>
+            <id>release</id>
+            <name>Dynamically-Release</name>
+            <url>${CI_RELEASE_URL}</url>
         </repository>
     </distributionManagement>
 

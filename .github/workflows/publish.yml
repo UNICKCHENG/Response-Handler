@@ -1,9 +1,19 @@
 name: Publish Packages
+
 on:
   workflow_dispatch:
+    inputs:
+      module:
+        default: "response-handler-core"
+        description: "Specify the publishing module"
+        required: true
+        type: string
+
+env:
+  CI_GITHUB_URL: "https://maven.pkg.github.com/UNICKCHENG/Response-Handler"
 
 jobs:
-  publish:
+  github-package:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -12,7 +22,7 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
 
-      - name: Deploy to GitHub
-        run: mvn clean deploy -am -pl response-handler-core
+      - name: Deploy to GitHub Package
+        run: mvn clean deploy -am -pl ${{ inputs.module }} -DCI_RELEASE_URL=${{ env.CI_GITHUB_URL }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
