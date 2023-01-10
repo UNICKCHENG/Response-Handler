@@ -1,0 +1,50 @@
+name: Publish GitHub Packages
+
+on:
+  workflow_call:
+    secrets:
+      access-token:
+        description: 'A token passed from the caller workflow'
+        required: true
+    inputs:
+      module:
+        description: "Specify the publishing module"
+        required: true
+        type: string
+      repository:
+        description: "Specify a maven-packages repository"
+        required: true
+        type: string
+
+jobs:
+  github-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: ${{ inputs.repository }}
+          fetch-depth: 0
+          token: ${{ secrets.access-token }}
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          path: plugin-source
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+
+      - name: Deploy Package
+        run: cd plugin-source; mvn clean deploy -am -pl ${{ inputs.module }} -DCI_RELEASE_URL=${{ env.CI_LOCAL_URL }}
+        env:
+          CI_LOCAL_URL: "file://${{ github.workspace }}"
+      - name: Remove Source Code
+        run: rm -rf plugin-source
+
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          repository-name: ${{ inputs.repository }}
+          branch: main
+          folder: .
+          token: ${{ secrets.access-token }}
