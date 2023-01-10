@@ -18,7 +18,7 @@ Hi, there 👇
 <dependency>
     <groupId>com.github.unickcheng</groupId>
     <artifactId>response-handler-core</artifactId>
-    <version>${response-handler.version}</version>
+    <version>0.0.1-SNAPSHOT</version>
 </dependency>
 ```
 > ⚠️ASAP: 目前暂未提交到中央仓库，请在 pom.xml 中增加「GitHub 仓库地址」来获取依赖
