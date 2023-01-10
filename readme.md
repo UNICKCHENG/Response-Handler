@@ -2,6 +2,8 @@ Hi, there 👇
 
 我正在写一个 Maven 依赖, 以便于在使用 spring 进行开发时节省重复的工作量。
 
+![](assets/restful-api.gif)
+
 ## ✨特征
 
 - [X] RESTful API 风格响应体格式
