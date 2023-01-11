@@ -20,6 +20,11 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 import javax.validation.constraints.NotNull;
 
 /**
+ * 拦截所有 ResponseBody
+ * @see #beforeBodyWrite 所有被拦截的 ResponseBody 进行额外处理
+ * @see #supports 确保哪些情况进行拦截, true 表示拦截, false 表示不拦截, 被拦截则会进入 {@link #beforeBodyWrite 进行处理}
+ * @see ResponseBodyAdvice 修改 ResponseBody 的拦截器
+ * @see com.github.unickcheng.rhandler.exception.ExceptionHandlerAdvice 关于异常拦截的封装
  * @author unickcheng
  */
 

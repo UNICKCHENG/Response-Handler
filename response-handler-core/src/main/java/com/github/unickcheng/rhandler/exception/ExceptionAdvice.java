@@ -25,6 +25,10 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
+ * 采用 @RestControllerAdvice + @ExceptionHandler 方案拦截指定异常
+ * 此部分适用于对一些特定异常进行额外处理, 如出现特定异常进行日志记录、推送异常通知等
+ * @see ResponseStatus 注解用于指定 HTTP 状态码, 否则因所有异常被成功拦截, HTTP 状态码也被判定为 200
+ * @see ExceptionHandlerAdvice 建议没有特定的操作时, 采用这个方案进行拦截
  * @author unickcheng
  */
 

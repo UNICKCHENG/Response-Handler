@@ -11,6 +11,7 @@
 
     <artifactId>response-handler-core</artifactId>
     <packaging>jar</packaging>
+    <description>The core module which supports RESTful API, exception handler, openapi</description>
 
     <dependencies>
         <dependency>

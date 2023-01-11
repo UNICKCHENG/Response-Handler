@@ -9,6 +9,7 @@
     <packaging>pom</packaging>
     <version>${revision}</version>
     <url>https://github.com/UNICKCHENG/Response-Handler</url>
+    <description>A maven dependency that handles response styles, catches exceptions, and other functions</description>
 
     <properties>
         <revision>0.0.1-SNAPSHOT</revision>
