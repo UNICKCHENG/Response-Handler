@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       module:
-        default: "response-handler-core"
+        default: "response-handler-core,response-handler-dependencies"
         description: "Specify the publishing module"
         required: true
         type: string
