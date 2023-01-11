@@ -13,12 +13,14 @@ Hi, there 👇
 
 ## 🎉用法
 
+### Step 1 引入依赖
+
 您需要先在 pom.xml 中添加下述依赖，然后命令行使用 `mvn install` 进行下载
 ```xml
 <dependency>
     <groupId>com.github.unickcheng</groupId>
     <artifactId>response-handler-core</artifactId>
-    <version>${response-handler.version}</version>
+    <version>0.0.1-SNAPSHOT</version>
 </dependency>
 ```
 > ⚠️ASAP: 目前暂未提交到中央仓库，请在 pom.xml 中增加「GitHub 仓库地址」来获取依赖
@@ -30,6 +32,11 @@ Hi, there 👇
         <url>https://unickcheng.github.io/maven-packages/</url>
     </repository>
 </repositories>
+```
+### Step 2 在 Controller 层追加注解
+
+```java
+@RHandlerResponseBody
 ```
 
 如果您不知道如何开始，您可以参考或使用 [demo](https://github.com/UNICKCHENG/Response-Handler/tree/main/demo) 来熟悉使用流程
