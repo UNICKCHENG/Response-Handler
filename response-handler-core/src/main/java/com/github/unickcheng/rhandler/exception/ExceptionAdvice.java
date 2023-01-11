@@ -5,6 +5,7 @@
 
 package com.github.unickcheng.rhandler.exception;
 
+import com.github.unickcheng.rhandler.annotation.RHandlerResponseBody;
 import com.github.unickcheng.rhandler.response.ResponseResult;
 import com.github.unickcheng.rhandler.utils.LogInfo;
 import org.springframework.core.Ordered;
@@ -32,7 +33,7 @@ import java.util.stream.Collectors;
  * @author unickcheng
  */
 
-@RestControllerAdvice
+@RestControllerAdvice(annotations = {RHandlerResponseBody.class})
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class ExceptionAdvice {
 

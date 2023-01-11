@@ -14,9 +14,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 
 @Slf4j
-@SpringBootApplication(scanBasePackages = {
-        "com.github.unickcheng.rhandler",
-        "cc.unickcheng.rhdemo"})
+@SpringBootApplication
 public class DemoApplication {
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);

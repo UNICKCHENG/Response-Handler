@@ -6,6 +6,7 @@
 package com.github.unickcheng.rhtest.controller;
 
 import com.github.unickcheng.rhandler.exception.CommonException;
+import com.github.unickcheng.rhandler.annotation.RHandlerResponseBody;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 
 @Slf4j
 @RestController
+@RHandlerResponseBody
 public class TestController {
 
     @GetMapping("/")
