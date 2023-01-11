@@ -5,7 +5,6 @@
 
 package com.github.unickcheng.rhandler.exception;
 
-import com.github.unickcheng.rhandler.annotation.RHandlerResponseBody;
 import com.github.unickcheng.rhandler.response.ResponseResult;
 import com.github.unickcheng.rhandler.utils.LogInfo;
 import org.springframework.http.HttpHeaders;
@@ -27,7 +26,7 @@ import javax.validation.constraints.NotNull;
  * @author unickcheng
  */
 
-@RestControllerAdvice(annotations = {RHandlerResponseBody.class})
+@RestControllerAdvice
 public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
     @NotNull
     @Override

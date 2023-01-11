@@ -7,9 +7,7 @@ package com.github.unickcheng.rhandler.response;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.unickcheng.rhandler.annotation.RHandlerResponseBody;
 import org.springframework.core.MethodParameter;
-import org.springframework.core.annotation.AnnotatedElementUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -20,7 +18,6 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import javax.validation.constraints.NotNull;
-import java.lang.annotation.Annotation;
 
 /**
  * 拦截所有 ResponseBody
@@ -31,22 +28,16 @@ import java.lang.annotation.Annotation;
  * @author unickcheng
  */
 
-@RestControllerAdvice(annotations = {RHandlerResponseBody.class})
+//@RestControllerAdvice(annotations = {RHandlerResponseBody.class})
+@RestControllerAdvice
 public class ResponseAdvice implements ResponseBodyAdvice<Object> {
-
-    private static final Class<? extends Annotation> ANNOTATION_TYPE = RHandlerResponseBody.class;
 
     @Override
     public boolean supports(@NotNull MethodParameter returnType
             , @NotNull Class<? extends HttpMessageConverter<?>> converterType) {
         // 避免 Swagger 不可用, 因此此处不拦截 Swagger 加载 UI 页面时的数据请求
         // 注意 通过 Swagger 向后端接口的请求仍然会被拦截处理, 这也是需要的
-        if (String.valueOf(returnType).contains("openapiJson")) {
-            return false;
-        }
-        // Only works if @RHandlerResponseBody Annotation is appended
-        return returnType.hasMethodAnnotation(ANNOTATION_TYPE) ||
-               AnnotatedElementUtils.hasAnnotation(returnType.getContainingClass(), ANNOTATION_TYPE);
+        return !String.valueOf(returnType).contains("openapiJson");
     }
 
     @Override
