@@ -7,6 +7,7 @@ package com.github.unickcheng.rhandler.response;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.MethodParameter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import javax.validation.constraints.NotNull;
+import java.util.TimeZone;
 
 /**
  * 拦截所有 ResponseBody
@@ -31,6 +33,9 @@ import javax.validation.constraints.NotNull;
 //@RestControllerAdvice(annotations = {RHandlerResponseBody.class})
 @RestControllerAdvice
 public class ResponseAdvice implements ResponseBodyAdvice<Object> {
+
+    @Value("${spring.jackson.time-zone}")
+    private String timeZone;
 
     @Override
     public boolean supports(@NotNull MethodParameter returnType
@@ -57,6 +62,8 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
         if (returnType.getGenericParameterType().equals(String.class)) {
             ObjectMapper objectMapper = new ObjectMapper();
             try {
+                response.getHeaders().setContentType(MediaType.APPLICATION_JSON);
+                objectMapper.setTimeZone(TimeZone.getTimeZone(this.timeZone));
                 return objectMapper.writeValueAsString(ResponseResult.success(body));
             } catch (JsonProcessingException e) {
                 return ResponseResult.badRequest().message("返回字符串类型错误");
