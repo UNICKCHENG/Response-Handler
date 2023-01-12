@@ -22,8 +22,8 @@ import java.util.Date;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseDomain {
 
-    @Schema(name = "请求时间", example = "2022-10-20 15:05:12")
-    @JsonFormat
+    @Schema(name = "请求时间", example = "2022-10-20 15:05:12 GMT+08:00")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss zz")
     private final Date timestamp;
 
     @Schema(name = "请求状态码", description = "常见如 200-成功, 400-外部错误, 500-其他错误")
