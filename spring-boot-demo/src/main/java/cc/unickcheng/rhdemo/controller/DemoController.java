@@ -1,9 +1,9 @@
 /*
- * create on 2023-01-08
+ * create on 2023-01-10
  * GitHub https://github.com/UNICKCHENG/Response-Handler
  */
 
-package com.github.unickcheng.rhtest.controller;
+package cc.unickcheng.rhdemo.controller;
 
 import com.github.unickcheng.rhandler.annotation.RHandlerController;
 import com.github.unickcheng.rhandler.exception.CommonException;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 
 @Slf4j
 @RHandlerController
-public class TestController {
+public class DemoController {
 
     @GetMapping("/")
     public String hello() {

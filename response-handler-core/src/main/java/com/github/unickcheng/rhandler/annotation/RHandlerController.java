@@ -6,8 +6,7 @@
 package com.github.unickcheng.rhandler.annotation;
 
 import org.springframework.core.annotation.AliasFor;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.lang.annotation.*;
 
@@ -18,12 +17,11 @@ import java.lang.annotation.*;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-@Controller
-@ResponseBody
+@RestController
 @RHandlerResponseBody
 public @interface RHandlerController {
     @AliasFor(
-            annotation = Controller.class
+            annotation = RestController.class
     )
     String value() default "";
 }

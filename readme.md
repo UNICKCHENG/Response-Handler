@@ -8,6 +8,8 @@ Hi, there 👇
 
 - [X] RESTful API 风格响应体格式
 - [X] 支持自动捕获常见异常，无需在抛出异常后再手动 catch
+- [ ] 支持返回数据进行加密
+- [ ] 支持传参进行解密
 - [ ] 支持扩展自定义状态码
 - [ ] 支持一些常见的断言判断
 
@@ -35,8 +37,14 @@ Hi, there 👇
 ```
 ### Step 2 在 Controller 层追加注解
 
+当您在 Controller 层增加 `@RHandlerResponseBody` 注解，将会对当前接口进行封装
 ```java
 @RHandlerResponseBody
 ```
 
-如果您不知道如何开始，您可以参考或使用 [demo](https://github.com/UNICKCHENG/Response-Handler/tree/main/demo) 来熟悉使用流程
+您也可以使用下面的注解, 等价于 `@RestController` + `@RHandlerResponseBody`
+```java
+@RHandlerController
+```
+
+如果您不知道如何开始，您可以参考或使用 [spring-boot-demo](spring-boot-demo) 来熟悉使用流程

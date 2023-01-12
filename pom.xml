@@ -23,7 +23,6 @@
     <modules>
         <module>response-handler-dependencies</module>
         <module>response-handler-core</module>
-        <module>response-handler-test</module>
     </modules>
 
     <licenses>
