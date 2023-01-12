@@ -23,7 +23,7 @@ import java.util.Date;
 public class ResponseDomain {
 
     @Schema(name = "请求时间", example = "2022-10-20 15:05:12")
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
+    @JsonFormat
     private final Date timestamp;
 
     @Schema(name = "请求状态码", description = "常见如 200-成功, 400-外部错误, 500-其他错误")

@@ -20,7 +20,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
 @Configuration
-@PropertySource(value = "classpath:404.properties")
+@PropertySource(value = "classpath:response-handler.properties")
 @ComponentScan(basePackages = "com.github.unickcheng.rhandler")
 public @interface RHandlerResponseBody {
 }
