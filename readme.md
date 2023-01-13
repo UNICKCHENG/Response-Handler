@@ -54,7 +54,7 @@ Hi, there 👇
 
 ### 1. 根据业务自定义响应体状态码信息
 
-可参考 [ReturnStatus.java](src/main/java/cc/unickcheng/rhdemo/enums/ReturnStatus.java) 对 `ResponseStatus` 接口进行覆写，之后只需在相应的方法内抛出自定义异常即可
+可参考 [ReturnStatus.java](response-handler-demo/src/main/java/cc/unickcheng/rhdemo/enums/ReturnStatus.java) 对 `ResponseStatus` 接口进行覆写，之后只需在相应的方法内抛出自定义异常即可
 ```java
 throw new CommonException(ReturnStatus.CUSTOM_ERROR);
 ```
