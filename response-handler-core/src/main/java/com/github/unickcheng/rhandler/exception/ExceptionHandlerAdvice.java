@@ -6,6 +6,7 @@
 package com.github.unickcheng.rhandler.exception;
 
 import com.github.unickcheng.rhandler.response.ResponseResult;
+import com.github.unickcheng.rhandler.response.ResponseStatus;
 import com.github.unickcheng.rhandler.utils.LogInfo;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -48,16 +49,27 @@ public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
                 .body(ResponseResult.status(status).message(e.getMessage()).build());
     }
 
+    @NotNull
+    protected ResponseEntity<Object> handleExceptionInternal(@NotNull Exception e,
+                                                             @Nullable Object body,
+                                                             @NotNull HttpHeaders headers,
+                                                             @NotNull ResponseStatus status,
+                                                             @NotNull WebRequest request) {
+        return ResponseEntity
+                .status(status.getHttpStatus())
+                .headers(headers)
+                .body(ResponseResult.status(status).message(e.getMessage()).build());
+    }
+
     // 其他异常和自定义异常捕获, 如果不做额外处理, 该方法仍然不能拦截所有异常, 如 404
     @ExceptionHandler({Exception.class, CommonException.class})
     @Nullable
     public ResponseEntity<Object> exception (Exception e, WebRequest request) {
-        HttpStatus status;
         if (e instanceof CommonException) {
-            status = HttpStatus.valueOf(((CommonException) e).getCode());
+            ResponseStatus status = ((CommonException) e).getResponseStatus();
             return this.handleExceptionInternal(e, null, new HttpHeaders(), status, request);
         }
-        status = HttpStatus.INTERNAL_SERVER_ERROR;
+        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
         return this.handleExceptionInternal(e, null, new HttpHeaders(), status, request);
     }
 }

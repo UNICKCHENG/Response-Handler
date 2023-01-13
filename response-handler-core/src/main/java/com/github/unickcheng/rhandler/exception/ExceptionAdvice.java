@@ -42,7 +42,8 @@ public class ExceptionAdvice {
     public ResponseResult bindException(BindException e) {
         LogInfo.exceptionWarn(e);
         FieldError fieldError = e.getBindingResult().getFieldError();
-        return ResponseResult.badRequest().message(null == fieldError ? "":fieldError.getDefaultMessage()).build();}
+        return ResponseResult.badRequest().message(null == fieldError ? "":fieldError.getDefaultMessage()).build();
+    }
     // 参数校验时不符合要求的异常 针对 JavaBean参数校验（json）
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(MethodArgumentNotValidException.class)

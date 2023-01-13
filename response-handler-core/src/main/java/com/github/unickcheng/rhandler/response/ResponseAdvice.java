@@ -9,7 +9,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.MethodParameter;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.server.ServerHttpRequest;
@@ -54,7 +53,7 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
         // 1）ResponseResult 对象不必反复封装
         // 2）通过 setStatusCode 保证 HTTP 状态码和返回体状态码一致，主要针对 @ExceptionHandler 拦截的数据
         if (body instanceof ResponseResult) {
-            response.setStatusCode(HttpStatus.valueOf(((ResponseResult) body).getStatus()));
+            // response.setStatusCode(HttpStatus.valueOf(((ResponseResult) body).getStatus()));
             return body;
         }
 

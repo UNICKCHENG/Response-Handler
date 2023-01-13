@@ -11,11 +11,11 @@ import org.springframework.util.Assert;
 import java.util.HashMap;
 
 /**
- * 已实现返回拦截，无需在 Controller 的业务接口再调用 ResponseResult，详细见 {@link ResponseAdvice}
- * 已实现链式调用，调用入口见 {@link #status(HttpStatus)}
- * 提供三种根据具体场景下的调用 {@link #success()} {@link #success(Object)} {@link #badRequest()}
- * @see org.springframework.http.HttpStatus 作为状态码使用, 也可自行设计
- * @see ResponseDomain 返回体的各字段
+ * 已实现返回拦截，无需在控制器中再调用 ResponseResult，详细见 {@link ResponseAdvice}  <br/>
+ * 已实现链式调用，调用入口见 {@link #status(HttpStatus)} <br/>
+ * 提供三种根据具体场景下的调用 {@link #success()} {@link #success(Object)} {@link #badRequest()} <br/>
+ * 目前支持 {@link org.springframework.http.HttpStatus} 和 {@link ResponseStatus} 作为响应体状态码使用
+ * @see ResponseDomain 返回体类
  * @see org.springframework.http.ResponseEntity 您也可以直接这个使用现成的封装
  * @author unickcheng
  */
@@ -45,6 +45,11 @@ public class ResponseResult extends ResponseDomain {
                 "HttpStatus must not be null. Please see org.springframework.http.HttpStatus");
         return new DefaultBuilder(status);
     }
+    public static Builder status(ResponseStatus status) {
+        Assert.notNull(status,
+                "ResponseStatus must not be null. Please see com.github.unickcheng.rhandler.enums.ResponseStatus");
+        return new DefaultBuilder(status);
+    }
     public static Builder status(int code) {
         return status(HttpStatus.valueOf(code));
     }
@@ -65,6 +70,10 @@ public class ResponseResult extends ResponseDomain {
         DefaultBuilder(HttpStatus status) {
             this.status = status.value();
             this.message = status.getReasonPhrase();
+        }
+        DefaultBuilder(ResponseStatus status) {
+            this.status = status.getCode();
+            this.message = status.getMessage();
         }
 
         @Override

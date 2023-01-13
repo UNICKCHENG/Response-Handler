@@ -10,7 +10,7 @@ Hi, there 👇
 - [X] 支持自动捕获常见异常，无需在抛出异常后再手动 catch
 - [ ] 支持返回数据进行加密
 - [ ] 支持传参进行解密
-- [ ] 支持扩展自定义状态码
+- [X] 支持扩展自定义状态码
 - [ ] 支持一些常见的断言判断
 
 ## 🎉用法
@@ -48,3 +48,18 @@ Hi, there 👇
 ```
 
 如果您不知道如何开始，您可以参考或使用 [spring-boot-demo](spring-boot-demo) 来熟悉使用流程
+
+
+## 扩展玩法
+
+### 1. 根据业务自定义响应体状态码信息
+
+可参考 [ReturnStatus.java](src/main/java/cc/unickcheng/rhdemo/enums/ReturnStatus.java) 对 `ResponseStatus` 接口进行覆写，之后只需在相应的方法内抛出自定义异常即可
+```java
+throw new CommonException(ReturnStatus.CUSTOM_ERROR);
+```
+
+如果您暂时没有这方面的需求，建议您使用 `org.springframework.http.HttpStatus` 作为响应体状态码进行快速开发。简单来说，您无需增加额外的操作，只需在相应的方法内抛出类似于下述代码的异常
+```java
+throw new CommonException(HttpStatus.BAD_REQUEST);
+```
