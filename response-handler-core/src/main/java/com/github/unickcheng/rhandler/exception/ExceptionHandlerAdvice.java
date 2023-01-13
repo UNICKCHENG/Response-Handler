@@ -58,7 +58,7 @@ public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
         return ResponseEntity
                 .status(status.getHttpStatus())
                 .headers(headers)
-                .body(ResponseResult.status(status).message(e.getMessage()).build());
+                .body(ResponseResult.status(status).build());
     }
 
     // 其他异常和自定义异常捕获, 如果不做额外处理, 该方法仍然不能拦截所有异常, 如 404
