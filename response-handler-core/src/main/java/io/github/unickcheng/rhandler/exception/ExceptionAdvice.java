@@ -3,10 +3,10 @@
  * GitHub https://github.com/UNICKCHENG/Response-Handler
  */
 
-package com.github.unickcheng.rhandler.exception;
+package io.github.unickcheng.rhandler.exception;
 
-import com.github.unickcheng.rhandler.response.ResponseResult;
-import com.github.unickcheng.rhandler.utils.LogInfo;
+import io.github.unickcheng.rhandler.response.ResponseResult;
+import io.github.unickcheng.rhandler.utils.LogInfo;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;

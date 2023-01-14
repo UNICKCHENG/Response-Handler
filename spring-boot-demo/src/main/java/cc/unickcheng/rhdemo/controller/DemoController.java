@@ -6,8 +6,8 @@
 package cc.unickcheng.rhdemo.controller;
 
 import cc.unickcheng.rhdemo.enums.ReturnStatus;
-import com.github.unickcheng.rhandler.annotation.RHandlerController;
-import com.github.unickcheng.rhandler.exception.CommonException;
+import io.github.unickcheng.rhandler.annotation.RHandlerController;
+import io.github.unickcheng.rhandler.exception.CommonException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;

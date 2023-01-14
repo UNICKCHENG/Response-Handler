@@ -5,7 +5,7 @@
 
     <parent>
         <artifactId>response-handler</artifactId>
-        <groupId>com.github.unickcheng</groupId>
+        <groupId>io.github.unickcheng</groupId>
         <version>${revision}</version>
     </parent>
 

@@ -3,7 +3,7 @@
  * GitHub https://github.com/UNICKCHENG/Response-Handler
  */
 
-package com.github.unickcheng.rhandler.annotation;
+package io.github.unickcheng.rhandler.annotation;
 
 import org.springframework.core.annotation.AliasFor;
 import org.springframework.web.bind.annotation.RestController;

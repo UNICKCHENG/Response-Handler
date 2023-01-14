@@ -3,9 +3,9 @@
  * GitHub https://github.com/UNICKCHENG/Response-Handler
  */
 
-package com.github.unickcheng.rhandler.exception;
+package io.github.unickcheng.rhandler.exception;
 
-import com.github.unickcheng.rhandler.response.ResponseStatus;
+import io.github.unickcheng.rhandler.response.ResponseStatus;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

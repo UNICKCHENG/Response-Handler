@@ -3,7 +3,7 @@
  * GitHub https://github.com/UNICKCHENG/Response-Handler
  */
 
-package com.github.unickcheng.rhandler.annotation;
+package io.github.unickcheng.rhandler.annotation;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -21,6 +21,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Configuration
 @PropertySource(value = "classpath:response-handler.properties")
-@ComponentScan(basePackages = "com.github.unickcheng.rhandler")
+@ComponentScan(basePackages = "io.github.unickcheng.rhandler")
 public @interface RHandlerResponseBody {
 }

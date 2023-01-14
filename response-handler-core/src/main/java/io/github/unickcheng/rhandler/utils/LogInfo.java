@@ -3,7 +3,7 @@
  * GitHub https://github.com/UNICKCHENG/Response-Handler
  */
 
-package com.github.unickcheng.rhandler.utils;
+package io.github.unickcheng.rhandler.utils;
 
 import lombok.extern.slf4j.Slf4j;
 

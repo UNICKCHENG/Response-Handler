@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <artifactId>response-handler</artifactId>
-        <groupId>com.github.unickcheng</groupId>
+        <groupId>io.github.unickcheng</groupId>
         <version>${revision}</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
@@ -42,7 +42,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.github.unickcheng</groupId>
+                <groupId>io.github.unickcheng</groupId>
                 <artifactId>response-handler-dependencies</artifactId>
                 <version>${project.version}</version>
                 <type>pom</type>

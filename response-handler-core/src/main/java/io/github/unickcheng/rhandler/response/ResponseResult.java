@@ -3,7 +3,7 @@
  * GitHub https://github.com/UNICKCHENG/Response-Handler
  */
 
-package com.github.unickcheng.rhandler.response;
+package io.github.unickcheng.rhandler.response;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.util.Assert;

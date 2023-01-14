@@ -20,7 +20,7 @@ Hi, there 👇
 您需要先在 pom.xml 中添加下述依赖，然后命令行使用 `mvn install` 进行下载
 ```xml
 <dependency>
-    <groupId>com.github.unickcheng</groupId>
+    <groupId>io.github.unickcheng</groupId>
     <artifactId>response-handler-core</artifactId>
     <version>0.0.1</version>
 </dependency>

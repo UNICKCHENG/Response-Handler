@@ -42,7 +42,7 @@
 
         <!-- https://github.com/UNICKCHENG/Response-Handler -->
         <dependency>
-            <groupId>com.github.unickcheng</groupId>
+            <groupId>io.github.unickcheng</groupId>
             <artifactId>response-handler-core</artifactId>
             <version>${response-handler.version}</version>
         </dependency>

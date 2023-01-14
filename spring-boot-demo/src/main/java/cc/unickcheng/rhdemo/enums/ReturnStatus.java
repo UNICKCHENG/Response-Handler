@@ -5,7 +5,7 @@
 
 package cc.unickcheng.rhdemo.enums;
 
-import com.github.unickcheng.rhandler.response.ResponseStatus;
+import io.github.unickcheng.rhandler.response.ResponseStatus;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 
