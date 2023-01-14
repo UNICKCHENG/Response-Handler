@@ -1,19 +1,17 @@
 /*
- * create on 2023-01-13
+ * create on 2023-01-14
  * GitHub https://github.com/UNICKCHENG/Response-Handler
  */
 
-package io.github.unickcheng.rhandler.response;
+package io.github.unickcheng.rhandler.exception;
 
 import org.springframework.http.HttpStatus;
 
 /**
- * 统一响应体状态码枚举类
+ * 统一响应体发生异常时状态码枚举类接口
  * @author unickcheng
  */
-
-public interface ResponseStatus {
-
+public interface ExceptionStatus {
     /**
      * 返回体状态码
      * @return Integer

@@ -5,8 +5,6 @@
 
 package io.github.unickcheng.rhandler.exception;
 
-import io.github.unickcheng.rhandler.response.ResponseStatus;
-import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
@@ -25,17 +23,14 @@ public class CommonException extends RuntimeException {
     private final String message;
     @NotBlank(message = "异常 HTTP 请求状态不可为空")
     private final HttpStatus httpStatus;
-    @Schema(name = "自定义状态码统一枚举类")
-    private ResponseStatus responseStatus = null;
 
-    public CommonException(ResponseStatus status) {
+    public CommonException(ExceptionStatus status) {
         this.httpStatus = status.getHttpStatus();
         this.code = status.getCode();
         this.message = status.getMessage();
-        this.responseStatus = status;
     }
 
-    public CommonException(ResponseStatus status, String message) {
+    public CommonException(ExceptionStatus status, String message) {
         this.httpStatus = status.getHttpStatus();
         this.code = status.getCode();
         this.message = message;

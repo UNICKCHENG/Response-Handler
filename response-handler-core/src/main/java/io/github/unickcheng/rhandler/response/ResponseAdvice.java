@@ -66,7 +66,7 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
                 objectMapper.setTimeZone(TimeZone.getTimeZone(this.timeZone));
                 return objectMapper.writeValueAsString(ResponseResult.success(body));
             } catch (JsonProcessingException e) {
-                return ResponseResult.badRequest().message("返回字符串类型错误");
+                return ResponseResult.badRequest().message("error returning string type");
             }
         }
 

@@ -35,7 +35,6 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class ExceptionAdvice {
-
     // 参数校验时不符合要求的异常 针对 JavaBean参数校验（form-data）
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(BindException.class)

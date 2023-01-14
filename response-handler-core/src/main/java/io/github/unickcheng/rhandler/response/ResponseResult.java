@@ -11,12 +11,15 @@ import org.springframework.util.Assert;
 import java.util.HashMap;
 
 /**
- * 已实现返回拦截，无需在控制器中再调用 ResponseResult，详细见 {@link ResponseAdvice}  <br/>
- * 已实现链式调用，调用入口见 {@link #status(HttpStatus)} <br/>
- * 提供三种根据具体场景下的调用 {@link #success()} {@link #success(Object)} {@link #badRequest()} <br/>
- * 目前支持 {@link org.springframework.http.HttpStatus} 和 {@link ResponseStatus} 作为响应体状态码使用
- * @see ResponseDomain 返回体类
- * @see org.springframework.http.ResponseEntity 您也可以直接这个使用现成的封装
+ * 返回体格式处理方法类，支持链式调用，调用入口见 {@link #status(HttpStatus)}。
+ * 旧的习惯是在控制器中返回 ResponseResult，目前已无需这样操作，详细可见 {@link ResponseAdvice}  <br/>  <br/>
+ *
+ * 目前默认状态码(status)和状态提示信息(message)与 {@link org.springframework.http.HttpStatus HTTP 状态码 } 保持一致。
+ * 当然，如果您有自定义状态码的需求，可以使用 {@link #customStatus} 作为自定义状态码的接口 <br/>  <br/>
+ *
+ * 提供三种根据具体场景下的调用 {@link #success()} {@link #success(Object)} {@link #badRequest()}
+ * @see ResponseDomain 返回体结构
+ * @see org.springframework.http.ResponseEntity 更强大的封装
  * @author unickcheng
  */
 
@@ -39,15 +42,16 @@ public class ResponseResult extends ResponseDomain {
         return status(HttpStatus.BAD_REQUEST);
     }
 
+    // 自定义状态码和状态信息
+    public static Builder customStatus(int code, String message) {
+        Assert.notNull(message, "The parameter message cannot be empty.");
+        return new DefaultBuilder(code).setMessage(message);
+    }
+
     // Builder 模式入口
     public static Builder status(HttpStatus status) {
         Assert.notNull(status,
                 "HttpStatus must not be null. Please see org.springframework.http.HttpStatus");
-        return new DefaultBuilder(status);
-    }
-    public static Builder status(ResponseStatus status) {
-        Assert.notNull(status,
-                "ResponseStatus must not be null. Please see com.github.unickcheng.rhandler.enums.ResponseStatus");
         return new DefaultBuilder(status);
     }
     public static Builder status(int code) {
@@ -65,15 +69,14 @@ public class ResponseResult extends ResponseDomain {
 
     private static class DefaultBuilder implements Builder {
         private final int status;
-        private String message;
+        private String message = "";
 
         DefaultBuilder(HttpStatus status) {
             this.status = status.value();
             this.message = status.getReasonPhrase();
         }
-        DefaultBuilder(ResponseStatus status) {
-            this.status = status.getCode();
-            this.message = status.getMessage();
+        DefaultBuilder(int code) {
+            this.status = code;
         }
 
         @Override
@@ -95,7 +98,7 @@ public class ResponseResult extends ResponseDomain {
 
         @Override
         public ResponseResult build() {
-            return new ResponseResult(this.status,this.message, null);
+            return new ResponseResult(this.status, this.message, null);
         }
     }
 }

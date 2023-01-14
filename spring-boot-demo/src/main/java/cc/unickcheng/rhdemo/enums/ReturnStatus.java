@@ -5,7 +5,7 @@
 
 package cc.unickcheng.rhdemo.enums;
 
-import io.github.unickcheng.rhandler.response.ResponseStatus;
+import io.github.unickcheng.rhandler.exception.ExceptionStatus;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 
@@ -14,7 +14,7 @@ import org.springframework.http.HttpStatus;
  */
 
 @AllArgsConstructor
-public enum ReturnStatus implements ResponseStatus {
+public enum ReturnStatus implements ExceptionStatus {
 
     CUSTOM_ERROR(HttpStatus.BAD_REQUEST, 40777, "This is a error");
 

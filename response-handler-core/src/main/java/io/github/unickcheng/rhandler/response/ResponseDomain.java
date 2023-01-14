@@ -15,6 +15,8 @@ import javax.validation.constraints.NotEmpty;
 import java.util.Date;
 
 /**
+ * 返回体结构 <br/>
+ * 注意: data 字段当且仅当 GET 请求时返回, 其余请求不返回该字段
  * @author unickcheng
  */
 
@@ -22,7 +24,7 @@ import java.util.Date;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseDomain {
 
-    @Schema(name = "请求时间", example = "2022-10-20 15:05:12 GMT+08:00")
+    @Schema(name = "请求时间", example = "2022-10-20 15:05:12 CST")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss zz")
     private final Date timestamp;
 
@@ -38,7 +40,7 @@ public class ResponseDomain {
     private final Object data;
 
     ResponseDomain(int status, String message, Object data) {
-        timestamp = new Date(System.currentTimeMillis());
+        this.timestamp = new Date(System.currentTimeMillis());
         this.status = status;
         this.message = message;
         this.data = data;
