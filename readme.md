@@ -1,4 +1,4 @@
-Hi, there 👇
+Hi, there 👇
 
 我正在写一个 Maven 依赖，只需一个注解，就能搞定接口返回格式，以及异常处理。
 
@@ -56,7 +56,7 @@ Hi, there 👇
 
 请网页端访问 `http://<your-ip>:8080/swagger-ui/index.html`
 
-![Pasted image 20230114213227.png](assets/Pasted%20image%2020230114213227.png)
+![Pasted image 20230114213227.png](assets/Pasted-image-20230114213227.png)
 
 返回体结构中包含请求时间，默认时区为 `Asia/Shanghai`。因为使用的是 `@JsonFormat` 来格式化字段，所有您可以很方便地在 `application` 配置文件中进行修改，注意目前您只能修改时区。
 
@@ -77,3 +77,18 @@ throw new CommonException(ReturnStatus.CUSTOM_ERROR);
 throw new CommonException(HttpStatus.BAD_REQUEST);
 ```
 
+## ✍️ 日志
+
+- [CHANGELOG](CHANGELOG.md)
+
+## 👍 其他有趣的项目
+
+- [Sa-Token](https://github.com/dromara/sa-token)
+- [encrypt-body-spring-boot-starter](https://github.com/Licoy/encrypt-body-spring-boot-starter)
+- [lombok](https://github.com/projectlombok/lombok)
+
+## 💖 感谢
+
+- [Spring Boot](https://spring.io/projects/spring-boot) 提供的框架支持
+- [开源依赖](https://github.com/UNICKCHENG/Response-Handler/network/dependencies)提供的支持
+- 感谢所有开源项目分享的想法和技术
