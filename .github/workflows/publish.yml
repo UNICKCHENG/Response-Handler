@@ -4,31 +4,38 @@ on:
   workflow_dispatch:
     inputs:
       module:
-        default: "response-handler-core,response-handler-dependencies"
+        default: "response-handler-core"
         description: "Specify the publishing module"
         required: true
         type: string
+      is_release:
+        default: false
+        required: true
+        type: boolean
 
 jobs:
-  github-package:
+  github-repository:
     uses: ./.github/workflows/github-package.yml
     with:
       repository: "UNICKCHENG/maven-packages"
-      module: ${{ inputs.module }}
     secrets:
       access-token: ${{ secrets.ACTION_PAT }}
 
-#  deploy-package:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v3
-#      - uses: actions/setup-java@v3
-#        with:
-#          java-version: '8'
-#          distribution: 'adopt'
-#
-#      - name: Deploy to GitHub Package
-#        run: mvn clean deploy -am -pl ${{ inputs.module }} -DCI_RELEASE_URL=${{ env.CI_GITHUB_URL }}
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          CI_GITHUB_URL: "https://maven.pkg.github.com/UNICKCHENG/Response-Handler"
+  github-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+
+      - name: Deploy to GitHub Package
+        run: mvn clean deploy -am -pl ${{ inputs.module }} -DCI_RELEASE_URL=${{ env.CI_GITHUB_URL }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CI_GITHUB_URL: "https://maven.pkg.github.com/UNICKCHENG/Response-Handler"
+
+  release:
+    if: ${{ inputs.is_release }}
+    uses: ./.github/workflows/release.yml

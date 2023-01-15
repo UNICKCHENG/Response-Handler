@@ -1,0 +1,38 @@
+# https://docs.github.com/en/actions/publishing-packages/publishing-java-packages-with-maven
+name: Release To OSSRH
+
+on:
+  workflow_call:
+
+env:
+  maven-local-repository: ~/maven-local-repository
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+          server-id: deploy-to-ossrh
+          server-username: ${{ secrets.OSSRH_USERNAME }}
+          server-password: ${{ secrets.OSSRH_TOKEN }}
+          gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
+          gpg-passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
+
+      - name: Load Fonts From Cache
+        id: maven-local-repository
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.maven-local-repository }}
+          key: ${{ runner.os }}-maven-local-repository
+
+      - name: Deploy to GitHub Package
+        run: mvn clean deploy -P release -Dmaven.repo.local=${{ env.maven-local-repository }}
+        env:
+          MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}

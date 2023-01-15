@@ -3,6 +3,9 @@ target/
 .flattened-pom.xml
 maven-repo/
 
+node_modules
+package-lock.json
+
 ### IntelliJ IDEA ###
 .idea/
 *.iws

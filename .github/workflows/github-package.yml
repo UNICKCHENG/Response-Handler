@@ -7,10 +7,6 @@ on:
         description: 'A token passed from the caller workflow'
         required: true
     inputs:
-      module:
-        description: "Specify the publishing module"
-        required: true
-        type: string
       repository:
         description: "Specify a maven-packages repository"
         required: true
@@ -35,7 +31,7 @@ jobs:
           distribution: 'adopt'
 
       - name: Deploy Package
-        run: cd plugin-source; mvn clean deploy -am -pl ${{ inputs.module }} -DCI_RELEASE_URL=${{ env.CI_LOCAL_URL }}
+        run: cd plugin-source; mvn clean deploy -DCI_RELEASE_URL=${{ env.CI_LOCAL_URL }}
         env:
           CI_LOCAL_URL: "file://${{ github.workspace }}"
       - name: Remove Source Code

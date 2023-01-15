@@ -6,7 +6,7 @@ Hi, there 👇
 
 ## ✨特征
 
-- [X] RESTful API 风格响应体格式
+- [X] 统一返回体格式
 - [X] 支持自动捕获常见异常，无需在抛出异常后再手动 catch
 - [X] 支持扩展自定义状态码
 - [x] 内置 OpenAPI 3，即 Swagger 3 的支持
