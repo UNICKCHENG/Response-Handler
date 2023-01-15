@@ -8,7 +8,7 @@
     "release:github": "mvn clean deploy -P github -am -pl response-handler-core -DCI_RELEASE_URL=https://maven.pkg.github.com/UNICKCHENG/Response-Handler",
 
     "version": "mvn versions:set-property -Dproperty=revision -DnewVersion=%npm_package_version%",
-    "tag": "git add pom.xml package.json CHANGELOG.md && git commit -m \"ci: update the version to v%npm_package_version%\" && git tag %npm_package_version%",
+    "tag": "git add pom.xml package.json CHANGELOG.md && git commit -m \"ci: update the version to v%npm_package_version%\" && git tag v%npm_package_version%",
     "chagelog": "standard-changelog -f",
     "no-release": "run-s version chagelog tag",
     "release": "npm-run-all no-release --parallel release:ossrh release:github"
