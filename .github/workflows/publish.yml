@@ -1,28 +1,28 @@
 name: Release Packages
 
 on:
+  push:
+    paths:
+      - response-handler-*
+      - pom.xml
   workflow_dispatch:
-    inputs:
-      module:
-        default: "response-handler-core"
-        description: "Specify the publishing module"
-        required: true
-        type: string
-      is_release:
-        default: false
-        required: true
-        type: boolean
 
 jobs:
   github-repository:
     uses: ./.github/workflows/deploy-to-github.yml
     with:
       repository: "UNICKCHENG/maven-packages"
-      module: ${{ inputs.module }}
-      is_release: ${{ inputs.is_release }}
+      is_release: false
     secrets:
       access-token: ${{ secrets.ACTION_PAT }}
 
-  deploy-to-ossrh:
-    if: ${{ inputs.is_release }}
-    uses: ./.github/workflows/deploy-to-ossrh.yml
+  github-packages:
+    if: startsWith(github.ref, 'refs/tags/v')
+    uses: ./.github/workflows/deploy-to-github.yml
+    with:
+      repository: "UNICKCHENG/maven-packages"
+      module: "response-handler-core"
+      is_release: true
+    secrets:
+      access-token: ${{ secrets.ACTION_PAT }}
+

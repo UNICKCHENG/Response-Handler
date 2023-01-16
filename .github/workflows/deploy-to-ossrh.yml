@@ -2,7 +2,9 @@
 name: Deploy To OSSRH
 
 on:
-  workflow_call:
+  push:
+    tags:
+      - v*
   workflow_dispatch:
 
 jobs:
