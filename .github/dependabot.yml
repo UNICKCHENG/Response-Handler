@@ -7,7 +7,7 @@ updates:
       interval: "daily"
       time: '03:00'
       timezone: "Asia/Shanghai"
-    open-pull-requests-limit: 1
+    open-pull-requests-limit: 2
 
   - package-ecosystem: maven
     directory: "/"
@@ -20,7 +20,6 @@ updates:
       - dependency-name: org.apache.maven.plugins:maven-gpg-plugin
         versions:
           - ">= 3.0.1"
-    open-pull-requests-limit: 5
 
   - package-ecosystem: "github-actions"
     directory: "/"
@@ -28,4 +27,4 @@ updates:
       interval: "weekly"
       time: '04:00'
       timezone: "Asia/Shanghai"
-    open-pull-requests-limit: 1
+    open-pull-requests-limit: 2
