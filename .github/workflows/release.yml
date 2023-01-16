@@ -3,9 +3,11 @@ name: Release To OSSRH
 
 on:
   workflow_call:
+  workflow_dispatch:
 
 env:
   maven-local-repository: ~/maven-local-repository
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -23,7 +25,7 @@ jobs:
           gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           gpg-passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
-      - name: Load Fonts From Cache
+      - name: Load Maven Repository From Cache
         id: maven-local-repository
         uses: actions/cache@v3
         with:
