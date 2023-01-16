@@ -4,8 +4,8 @@
   "description": "A maven dependency that handles response body, catches exceptions, supports for openapi.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "release:ossrh": "mvn clean deploy -P release",
-    "release:github": "mvn clean deploy -P github -am -pl response-handler-core -DCI_RELEASE_URL=https://maven.pkg.github.com/UNICKCHENG/Response-Handler",
+    "release:ossrh": "mvn -s settings.xml clean deploy -P release",
+    "release:github": "mvn -s settings.xml clean deploy -P github -am -pl response-handler-core -DCI_RELEASE_URL=https://maven.pkg.github.com/UNICKCHENG/Response-Handler",
 
     "version": "mvn versions:set-property -Dproperty=revision -DnewVersion=%npm_package_version%",
     "tag": "git add pom.xml package.json CHANGELOG.md && git commit -m \"ci: update the version to v%npm_package_version%\" && git tag v%npm_package_version%",

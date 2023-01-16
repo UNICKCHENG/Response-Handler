@@ -19,9 +19,6 @@ jobs:
         with:
           java-version: '8'
           distribution: 'adopt'
-          server-id: deploy-to-ossrh
-          server-username: ${{ secrets.OSSRH_USERNAME }}
-          server-password: ${{ secrets.OSSRH_TOKEN }}
           gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           gpg-passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
@@ -33,8 +30,8 @@ jobs:
           key: ${{ runner.os }}-maven-local-repository
 
       - name: Deploy to GitHub Package
-        run: mvn clean deploy -P release -Dmaven.repo.local=${{ env.maven-local-repository }}
+        run: mvn -s settings.xml clean deploy -P release -Dmaven.repo.local=${{ env.maven-local-repository }}
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-          MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
+          MAVEN_TOKEN: ${{ secrets.OSSRH_TOKEN }}
           MAVEN_GPG_PASSPHRASE: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
