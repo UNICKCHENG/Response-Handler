@@ -4,7 +4,6 @@ on:
   push:
     paths:
       - response-handler-*
-      - pom.xml
   workflow_dispatch:
 
 jobs:
