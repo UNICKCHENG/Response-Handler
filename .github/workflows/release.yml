@@ -5,9 +5,6 @@ on:
   workflow_call:
   workflow_dispatch:
 
-env:
-  maven-local-repository: ~/maven-local-repository
-
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -19,9 +16,6 @@ jobs:
         with:
           java-version: '8'
           distribution: 'adopt'
-          server-id: deploy-to-ossrh
-          server-username: ${{ secrets.OSSRH_USERNAME }}
-          server-password: ${{ secrets.OSSRH_TOKEN }}
           gpg-private-key: ${{ secrets.MAVEN_GPG_PRIVATE_KEY }}
           gpg-passphrase: ${{ secrets.MAVEN_GPG_PASSPHRASE }}
 
@@ -29,11 +23,11 @@ jobs:
         id: maven-local-repository
         uses: actions/cache@v3
         with:
-          path: ${{ env.maven-local-repository }}
+          path: ~/.m2/repository
           key: ${{ runner.os }}-maven-local-repository
 
       - name: Deploy to GitHub Package
-        run: mvn -s settings.xml clean deploy -P release -Dmaven.repo.local=${{ env.maven-local-repository }}
+        run: mvn -s settings.xml clean deploy -P release
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
           MAVEN_TOKEN: ${{ secrets.OSSRH_TOKEN }}
