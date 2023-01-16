@@ -1,4 +1,4 @@
-name: Publish Packages
+name: Release Packages
 
 on:
   workflow_dispatch:
@@ -15,27 +15,14 @@ on:
 
 jobs:
   github-repository:
-    uses: ./.github/workflows/github-package.yml
+    uses: ./.github/workflows/deploy-to-github.yml
     with:
       repository: "UNICKCHENG/maven-packages"
+      module: ${{ inputs.module }}
+      is_release: ${{ inputs.is_release }}
     secrets:
       access-token: ${{ secrets.ACTION_PAT }}
 
-  github-package:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-java@v3
-        with:
-          java-version: '8'
-          distribution: 'adopt'
-
-      - name: Deploy to GitHub Package
-        run: mvn clean deploy -am -pl ${{ inputs.module }} -DCI_RELEASE_URL=${{ env.CI_GITHUB_URL }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CI_GITHUB_URL: "https://maven.pkg.github.com/UNICKCHENG/Response-Handler"
-
-  release:
+  deploy-to-ossrh:
     if: ${{ inputs.is_release }}
-    uses: ./.github/workflows/release.yml
+    uses: ./.github/workflows/deploy-to-ossrh.yml

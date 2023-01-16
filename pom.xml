@@ -41,6 +41,9 @@
             <name>zhicheng</name>
             <email>hi@unickcheng.cc</email>
             <timezone>+8</timezone>
+            <roles>
+                <role>Developer</role>
+            </roles>
         </developer>
     </developers>
 
@@ -106,7 +109,7 @@
                     <configuration>
                         <serverId>deploy-to-ossrh</serverId>
                         <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                        <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                        <autoReleaseAfterClose>true</autoReleaseAfterClose>
                     </configuration>
                 </plugin>
 

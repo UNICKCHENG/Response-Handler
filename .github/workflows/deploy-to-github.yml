@@ -1,4 +1,4 @@
-name: Publish GitHub Packages
+name: Deploy To GitHub
 
 on:
   workflow_call:
@@ -11,9 +11,39 @@ on:
         description: "Specify a maven-packages repository"
         required: true
         type: string
+      module:
+        description: "Specify the module to be published"
+        required: false
+        type: string
+      is_release:
+        default: false
+        required: true
+        type: string
 
 jobs:
+
   github-package:
+    if: ${{ inputs.is_release }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+
+      - name: Deploy to GitHub Package 🚀
+        run: |
+          if [ ! ${{ inputs.module }} ]; then
+            mvn clean deploy -DCI_RELEASE_URL=${{ env.CI_GITHUB_URL }}
+          else
+           mvn clean deploy -am -pl ${{ inputs.module }} -DCI_RELEASE_URL=${{ env.CI_GITHUB_URL }}
+          fi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CI_GITHUB_URL: "https://maven.pkg.github.com/${{ github.repository }}"
+
+  github-repository:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -30,14 +60,14 @@ jobs:
           java-version: '8'
           distribution: 'adopt'
 
-      - name: Deploy Package
+      - name: Deploy To Local
         run: cd plugin-source; mvn clean deploy -DCI_RELEASE_URL=${{ env.CI_LOCAL_URL }}
         env:
           CI_LOCAL_URL: "file://${{ github.workspace }}"
       - name: Remove Source Code
         run: rm -rf plugin-source
 
-      - name: Deploy 🚀
+      - name: Deploy To GitHub Repository 🚀
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           repository-name: ${{ inputs.repository }}

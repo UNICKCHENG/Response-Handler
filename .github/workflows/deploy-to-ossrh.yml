@@ -1,9 +1,8 @@
 # https://docs.github.com/en/actions/publishing-packages/publishing-java-packages-with-maven
-name: Release To OSSRH
+name: Deploy To OSSRH
 
 on:
   workflow_call:
-  workflow_dispatch:
 
 jobs:
   release:
