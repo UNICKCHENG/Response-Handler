@@ -18,7 +18,7 @@ on:
       is_release:
         default: false
         required: false
-        type: string
+        type: boolean
 
 jobs:
 
