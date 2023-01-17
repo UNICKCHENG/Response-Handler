@@ -7,21 +7,35 @@ on:
   workflow_dispatch:
 
 jobs:
-  github-repository:
-    uses: ./.github/workflows/deploy-to-github.yml
-    with:
-      repository: "UNICKCHENG/maven-packages"
-      is_release: false
-    secrets:
-      access-token: ${{ secrets.ACTION_PAT }}
 
-  github-packages:
-    if: startsWith(github.ref, 'refs/tags/v')
+  validated:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+
+      - name: Load Maven Repository From Cache
+        id: maven-local-repository
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-local-repository
+
+      - name: Start validation
+        run: cd spring-boot-demo; mvn test
+
+  deploy-to-github:
+    needs: [validated]
     uses: ./.github/workflows/deploy-to-github.yml
     with:
       repository: "UNICKCHENG/maven-packages"
       module: "response-handler-core"
-      is_release: true
+      is_release: startsWith(github.ref, 'refs/tags/v')
     secrets:
       access-token: ${{ secrets.ACTION_PAT }}
 
