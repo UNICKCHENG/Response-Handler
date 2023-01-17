@@ -7,7 +7,6 @@ package cc.unickcheng.rhdemo.controller;
 
 import cc.unickcheng.rhdemo.ResponseBody;
 import cc.unickcheng.rhdemo.enums.ReturnStatus;
-import io.github.unickcheng.rhandler.exception.CommonException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -29,7 +28,7 @@ public class DemoControllerTest {
     private TestRestTemplate testRestTemplate;
 
     @Test
-    public void hello() throws CommonException {
+    public void hello() {
         ResponseEntity<ResponseBody> responseEntity = testRestTemplate.getForEntity("/", ResponseBody.class);
         Assertions.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
 
@@ -40,7 +39,7 @@ public class DemoControllerTest {
     }
 
     @Test
-    public void error() throws CommonException {
+    public void error()  {
         ResponseEntity<ResponseBody> responseEntity = testRestTemplate.postForEntity("/error", null, ResponseBody.class);
         Assertions.assertEquals(responseEntity.getStatusCode(), HttpStatus.INTERNAL_SERVER_ERROR);
 
@@ -50,7 +49,7 @@ public class DemoControllerTest {
     }
 
     @Test
-    public void CustomException() throws CommonException {
+    public void CustomException() {
         ResponseEntity<ResponseBody> responseEntity = testRestTemplate.postForEntity("/v1/error", null, ResponseBody.class);
         Assertions.assertEquals(responseEntity.getStatusCode(), HttpStatus.BAD_REQUEST);
 
@@ -60,7 +59,7 @@ public class DemoControllerTest {
     }
 
     @Test
-    public void CustomExceptionV2() throws CommonException {
+    public void CustomExceptionV2() {
         ResponseEntity<ResponseBody> responseEntity = testRestTemplate.postForEntity("/v2/error", null, ResponseBody.class);
         Assertions.assertEquals(responseEntity.getStatusCode(), HttpStatus.BAD_REQUEST);
 
@@ -70,7 +69,7 @@ public class DemoControllerTest {
     }
 
     @Test
-    public void cities() throws CommonException {
+    public void cities() {
         ResponseEntity<ResponseBody> responseEntity = testRestTemplate.getForEntity("/num/1", ResponseBody.class);
         Assertions.assertEquals(responseEntity.getStatusCode(), HttpStatus.OK);
 
@@ -81,12 +80,18 @@ public class DemoControllerTest {
     }
 
     @Test
-    public void citiesPositive() throws CommonException {
+    public void citiesPositive() {
         ResponseEntity<ResponseBody> responseEntity = testRestTemplate.getForEntity("/num/-1", ResponseBody.class);
         Assertions.assertEquals(responseEntity.getStatusCode(), HttpStatus.BAD_REQUEST);
 
         Assertions.assertNotNull(responseEntity.getBody());
         Assertions.assertEquals(HttpStatus.BAD_REQUEST.value(), responseEntity.getBody().getStatus());
-        Assertions.assertEquals(HttpStatus.BAD_REQUEST.getReasonPhrase() + ". cities.id: 必须是正数", responseEntity.getBody().getMessage());
+
+        // 临时解决「中英文系统输出不一致问题」
+        try{
+            Assertions.assertEquals(HttpStatus.BAD_REQUEST.getReasonPhrase() + ". cities.id: must be greater than 0", responseEntity.getBody().getMessage());
+        } catch (Throwable tr) {
+            Assertions.assertEquals(HttpStatus.BAD_REQUEST.getReasonPhrase() + ". cities.id: 必须是正数", responseEntity.getBody().getMessage());
+        }
     }
 }
