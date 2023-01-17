@@ -31,13 +31,23 @@ jobs:
       - name: Start validation
         run: cd spring-boot-demo; mvn test
 
+  pre-deploy:
+    if: ${{ !startsWith(github.ref, 'refs/tags/v') }}
+    needs: [ validated ]
+    uses: ./.github/workflows/deploy-to-github.yml
+    with:
+      repository: "UNICKCHENG/maven-packages"
+    secrets:
+      access-token: ${{ secrets.ACTION_PAT }}
+
   deploy-to-github:
+    if: startsWith(github.ref, 'refs/tags/v')
     needs: [validated]
     uses: ./.github/workflows/deploy-to-github.yml
     with:
       repository: "UNICKCHENG/maven-packages"
       module: "response-handler-core"
-      is_release: ${{ startsWith(github.ref, 'refs/tags/v') }}
+      is_release: true
     secrets:
       access-token: ${{ secrets.ACTION_PAT }}
 
