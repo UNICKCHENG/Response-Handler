@@ -16,7 +16,7 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 public enum ReturnStatus implements ExceptionStatus {
 
-    CUSTOM_ERROR(HttpStatus.BAD_REQUEST, 40777, "This is a error");
+    CUSTOM_ERROR(HttpStatus.BAD_REQUEST, 40777, "There is an error!");
 
     private final HttpStatus httpStatus;
     private final int code;

@@ -1,0 +1,13 @@
+# @name hello
+GET http://localhost:8080/
+Accept: application/json
+
+###
+# @name list
+GET http://localhost:8080/test
+Accept: application/json
+
+
+###
+GET http://localhost:8080/num/1
+Accept: application/json
