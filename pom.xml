@@ -25,6 +25,7 @@
     <modules>
         <module>response-handler-dependencies</module>
         <module>response-handler-core</module>
+        <module>response-handler-plugin</module>
     </modules>
 
     <licenses>

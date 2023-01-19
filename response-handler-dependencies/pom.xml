@@ -21,6 +21,7 @@
         <response-handler-swagger.version>1.6.14</response-handler-swagger.version>
         <response-handler-knife4j.versin>3.0.3</response-handler-knife4j.versin>
         <response-handler-hutool.version>5.8.11</response-handler-hutool.version>
+        <response-handler-auto-service.version>1.0.1</response-handler-auto-service.version>
     </properties>
 
     <dependencyManagement>
@@ -88,6 +89,13 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${response-handler-hutool.version}</version>
+            </dependency>
+            <!-- https://mvnrepository.com/artifact/com.google.auto.service/auto-service -->
+            <dependency>
+                <groupId>com.google.auto.service</groupId>
+                <artifactId>auto-service</artifactId>
+                <scope>compile</scope>
+                <version>${response-handler-auto-service.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
