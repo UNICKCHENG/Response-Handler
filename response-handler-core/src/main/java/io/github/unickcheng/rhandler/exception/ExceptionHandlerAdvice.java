@@ -22,15 +22,15 @@ import javax.validation.constraints.NotNull;
  * 通用异常拦截器
  * @see ResponseEntityExceptionHandler 作为其他异常捕获，注意目前只收集了 15 种异常情形
  * @see #exception(Exception, WebRequest) 添加指定的异常拦截样例
- * @see CommonException 自定义异常封装类
+ * @see RHandlerException 自定义异常封装类
  * @author unickcheng
  */
 
 @RestControllerAdvice
 public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
-    @NotNull
+
     @Override
-    protected ResponseEntity<Object> handleExceptionInternal(@NotNull Exception e,
+    protected ResponseEntity<Object> handleExceptionInternal (@NotNull Exception e,
                                                              @Nullable Object body,
                                                              @NotNull HttpHeaders headers,
                                                              @NotNull HttpStatus status,
@@ -48,15 +48,18 @@ public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
                 .body(ResponseResult.status(status).message(e.getMessage()).build());
     }
 
-    // 其他异常和自定义异常捕获, 如果不做额外处理, 该方法仍然不能拦截所有异常, 如 404
+    // 其他异常捕获, 如果不做额外处理, 该方法仍然不能拦截所有异常, 如 404
+    @Nullable
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Object> exception (Exception e, WebRequest request) {
         HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
         return this.handleExceptionInternal(e, null, new HttpHeaders(), status, request);
     }
 
+
+    // 自定义异常处理
     @NotNull
-    protected ResponseEntity<Object> handleExceptionInternal(@NotNull CommonException e,
+    protected ResponseEntity<Object> handleExceptionInternal(@NotNull RHandlerException e,
                                                              @NotNull HttpStatus status,
                                                              @NotNull WebRequest request) {
         if (HttpStatus.INTERNAL_SERVER_ERROR.equals(status)) {
@@ -69,12 +72,12 @@ public class ExceptionHandlerAdvice extends ResponseEntityExceptionHandler {
         return ResponseEntity
                 .status(e.getHttpStatus())
                 .headers(new HttpHeaders())
-                .body(ResponseResult.customStatus(e.getCode(), e.getMessage()).build());
+                .body(ResponseResult.customStatus(e.getResponseDomain().getStatus(), e.getResponseDomain().getMessage()).build());
     }
-    // 自定义异常处理
-    @ExceptionHandler(CommonException.class)
+
     @Nullable
-    public ResponseEntity<Object> exception (CommonException e, WebRequest request) {
+    @ExceptionHandler(RHandlerException.class)
+    public ResponseEntity<Object> exception (RHandlerException e, WebRequest request) {
         return this.handleExceptionInternal(e, e.getHttpStatus(), request);
     }
 }

@@ -11,7 +11,7 @@ import org.springframework.http.HttpStatus;
  * 统一响应体发生异常时状态码枚举类接口
  * @author unickcheng
  */
-public interface ExceptionStatus {
+public interface ExceptionStatusInfo {
     /**
      * 返回体状态码
      * @return Integer

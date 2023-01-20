@@ -31,11 +31,6 @@
             <artifactId>response-handler-core</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <dependency>
-            <groupId>io.github.unickcheng</groupId>
-            <artifactId>response-handler-custom-status-plugin</artifactId>
-            <version>${project.version}</version>
-        </dependency>
 
         <!--  ### other  dependency ### -->
         <!-- devtools hot loading -->
