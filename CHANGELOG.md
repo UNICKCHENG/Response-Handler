@@ -1,4 +1,38 @@
-## 0.0.1 (2023-01-15)
+# [0.2.0-SNAPSHOT](https://github.com/UNICKCHENG/Response-Handler/compare/v0.0.1...v0.2.0-SNAPSHOT) (2023-01-20)
+
+
+### Bug Fixes
+
+* **demo:** fix the Chinese and English system output ([fb24fc8](https://github.com/UNICKCHENG/Response-Handler/commit/fb24fc872418e3adb5fc5b162931f76ba428f96f))
+* **exception:** fix bug caused by code adjustment ([1273235](https://github.com/UNICKCHENG/Response-Handler/commit/12732356188bff7c775493b88d0c9a12215b156b))
+
+
+### Features
+
+* **custom-status-code:**  add the use of annotations ([81e0799](https://github.com/UNICKCHENG/Response-Handler/commit/81e07993f1c0d680070052c110a184f1e371959d))
+* **demo:** add jUint test ([985b10a](https://github.com/UNICKCHENG/Response-Handler/commit/985b10af0b4d65ad668c946feda569a19334bda2))
+* **start:** add the response-handler-start module ([0c82dae](https://github.com/UNICKCHENG/Response-Handler/commit/0c82daec89a9fc13d5188bfe6019a101d2839ef3))
+
+
+
+# [0.2.0-SNAPSHOT](https://github.com/UNICKCHENG/Response-Handler/compare/v0.0.1...v0.2.0-SNAPSHOT) (2023-01-20)
+
+
+### Bug Fixes
+
+* **demo:** fix the Chinese and English system output ([fb24fc8](https://github.com/UNICKCHENG/Response-Handler/commit/fb24fc872418e3adb5fc5b162931f76ba428f96f))
+* **exception:** fix bug caused by code adjustment ([1273235](https://github.com/UNICKCHENG/Response-Handler/commit/12732356188bff7c775493b88d0c9a12215b156b))
+
+
+### Features
+
+* **custom-status-code:**  add the use of annotations ([81e0799](https://github.com/UNICKCHENG/Response-Handler/commit/81e07993f1c0d680070052c110a184f1e371959d))
+* **demo:** add jUint test ([985b10a](https://github.com/UNICKCHENG/Response-Handler/commit/985b10af0b4d65ad668c946feda569a19334bda2))
+* **start:** add the response-handler-start module ([0c82dae](https://github.com/UNICKCHENG/Response-Handler/commit/0c82daec89a9fc13d5188bfe6019a101d2839ef3))
+
+
+
+## 0.0.1 [2023-01-15]
 
 
 ### Bug Fixes
