@@ -13,7 +13,7 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <response-handler.version>0.0.1</response-handler.version>
+        <response-handler.version>0.2.0-SNAPSHOT</response-handler.version>
         <spring-boot.version>2.7.4</spring-boot.version>
     </properties>
 
@@ -50,6 +50,11 @@
         <dependency>
             <groupId>io.github.unickcheng</groupId>
             <artifactId>response-handler-core</artifactId>
+            <version>${response-handler.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.unickcheng</groupId>
+            <artifactId>response-handler-custom-status-plugin</artifactId>
             <version>${response-handler.version}</version>
         </dependency>
     </dependencies>
