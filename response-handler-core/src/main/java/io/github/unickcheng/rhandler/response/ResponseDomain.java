@@ -39,11 +39,18 @@ public class ResponseDomain {
     @Schema(name = "请求返回值", description = "POST PUT DELETE EXCEPTION 等操作不返回该字段")
     private final Object data;
 
-    ResponseDomain(int status, String message, Object data) {
+    public ResponseDomain (int status, String message, Object data) {
         this.timestamp = new Date(System.currentTimeMillis());
         this.status = status;
         this.message = message;
         this.data = data;
+    }
+
+    public ResponseDomain(int status, String message) {
+        this.timestamp = new Date(System.currentTimeMillis());
+        this.status = status;
+        this.message = message;
+        this.data = null;
     }
 }
 

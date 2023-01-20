@@ -7,8 +7,9 @@ package cc.unickcheng.rhdemo.controller;
 
 import cc.unickcheng.rhdemo.enums.ReturnStatus;
 import io.github.unickcheng.rhandler.annotation.RHandlerController;
-import io.github.unickcheng.rhandler.exception.CommonException;
+import io.github.unickcheng.rhandler.exception.RHandlerException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -44,17 +45,29 @@ public class DemoController {
 
     @PostMapping("/error")
     public void error() {
-        throw new RuntimeException("RuntimeException");
+        throw new RuntimeException("RuntimeException !");
     }
 
     @PostMapping("/v1/error")
     public void CustomException() {
-        throw new CommonException("There is an error!");
+        throw new RHandlerException(HttpStatus.BAD_REQUEST, "There is an error!");
     }
 
     @PostMapping("/v2/error")
     public void CustomExceptionV2() {
-        throw new CommonException(ReturnStatus.CUSTOM_ERROR);
+        throw new RHandlerException(ReturnStatus.CUSTOM_ERROR);
+    }
+    @PostMapping("/v3/error")
+    public void CustomExceptionV3() {
+        throw new RHandlerException(HttpStatus.BAD_REQUEST);
+    }
+    @PostMapping("/v4/error")
+    public void CustomExceptionV4() {
+        throw new RHandlerException();
+    }
+    @PostMapping("/v5/error")
+    public void CustomExceptionV5() {
+        throw new RHandlerException("this is a test");
     }
 
     @GetMapping("/num/{id}")

@@ -77,14 +77,14 @@
                 <artifactId>spring-boot-starter-hateoas</artifactId>
                 <version>${response-handler-spring-boot.version}</version>
             </dependency>
-            <!-- devtools 实现热加载 -->
+            <!-- devtools hot loading -->
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-devtools</artifactId>
                 <version>${response-handler-spring-boot.version}</version>
                 <optional>true</optional>
             </dependency>
-            <!-- 小而全的Java工具类库 -->
+            <!-- Java tool library  -->
             <dependency>
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>

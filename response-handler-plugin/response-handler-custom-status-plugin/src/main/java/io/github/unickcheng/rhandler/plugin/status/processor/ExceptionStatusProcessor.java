@@ -63,7 +63,7 @@ public class ExceptionStatusProcessor extends AbstractProcessor {
                         String.format("%s error: @%s must be used for a enum.", element.getSimpleName(), annotations));
             }
             // 增加 import
-            addImportPackage(element, "io.github.unickcheng.rhandler.exception.ExceptionStatus");
+            addImportPackage(element, "io.github.unickcheng.rhandler.exception.ExceptionStatusInfo");
             // 增加需要的成员变量
 
             // 增加 get 方法
@@ -88,7 +88,7 @@ public class ExceptionStatusProcessor extends AbstractProcessor {
                         jcClassDecl.defs = jcClassDecl.defs.prepend(getMethod);
                     }
                 });
-                jcClassDecl.implementing = jcClassDecl.implementing.append(treeMaker.Ident(names.fromString("ExceptionStatus")));
+                jcClassDecl.implementing = jcClassDecl.implementing.append(treeMaker.Ident(names.fromString("ExceptionStatusInfo")));
                 super.visitClassDef(jcClassDecl);
             }
         });

@@ -12,9 +12,12 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 /**
+ * 从 0.2.0 版本开始弃用
+ * 请使用 {@link RHandlerException} 来代替该类 @2023-11-20
  * @author unickcheng
  */
 
+@Deprecated
 @Getter
 public class CommonException extends RuntimeException {
     @NotEmpty(message = "异常错误码不可为空")
@@ -24,13 +27,13 @@ public class CommonException extends RuntimeException {
     @NotBlank(message = "异常 HTTP 请求状态不可为空")
     private final HttpStatus httpStatus;
 
-    public CommonException(ExceptionStatus status) {
+    public CommonException(ExceptionStatusInfo status) {
         this.httpStatus = status.getHttpStatus();
         this.code = status.getCode();
         this.message = status.getMessage();
     }
 
-    public CommonException(ExceptionStatus status, String message) {
+    public CommonException(ExceptionStatusInfo status, String message) {
         this.httpStatus = status.getHttpStatus();
         this.code = status.getCode();
         this.message = message;
