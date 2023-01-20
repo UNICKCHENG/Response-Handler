@@ -11,8 +11,10 @@
 
     <artifactId>response-handler-plugin</artifactId>
     <packaging>pom</packaging>
+    <description>All plugin groups of response-handler</description>
+
     <modules>
-        <module>response-handler-exception-status-plugin</module>
+        <module>response-handler-custom-status-plugin</module>
     </modules>
 
     <dependencyManagement>
@@ -26,24 +28,4 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
-    <dependencies>
-        <dependency>
-            <groupId>io.github.unickcheng</groupId>
-            <artifactId>response-handler-core</artifactId>
-            <version>${project.version}</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.sun</groupId>
-            <artifactId>tools</artifactId>
-            <version>${java.version}</version>
-            <scope>system</scope>
-            <systemPath>${java.home}/../lib/tools.jar</systemPath>
-        </dependency>
-        <dependency>
-            <groupId>com.google.auto.service</groupId>
-            <artifactId>auto-service</artifactId>
-        </dependency>
-    </dependencies>
 </project>
