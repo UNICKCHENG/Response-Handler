@@ -34,7 +34,7 @@ jobs:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-local-repository
 
-      - name: Deploy to GitHub Package
+      - name: Deploy to Maven Package
         run: mvn -s settings.xml clean deploy -P release
         env:
           MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
