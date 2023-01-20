@@ -4,8 +4,8 @@ on:
   push:
     paths:
       - response-handler-*
-    tags:
-      - v*
+    branch:
+      - main
   workflow_dispatch:
   pull_request:
     types: [open]
@@ -13,6 +13,7 @@ on:
 jobs:
 
   validated:
+    if: startsWith(github.ref, 'refs/tags/v')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
