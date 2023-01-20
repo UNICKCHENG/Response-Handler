@@ -17,12 +17,12 @@ Hi, there 👇
 
 ### 步骤1：引入依赖
 
-您需要先在 pom.xml 中添加下述依赖，然后命令行使用 `mvn install` 进行下载
+您需要先在 pom.xml 中添加下述依赖，然后执行 `mvn install` 下载依赖
 ```xml
 <dependency>
     <groupId>io.github.unickcheng</groupId>
-    <artifactId>response-handler-core</artifactId>
-    <version>0.0.1</version>
+    <artifactId>response-handler-start</artifactId>
+    <version>0.2.0-SNAPSHOT</version>
 </dependency>
 ```
 > ⚠️ASAP: 目前暂未提交到中央仓库，请在 pom.xml 中增加「GitHub 仓库地址」来获取依赖
@@ -58,7 +58,7 @@ Hi, there 👇
 
 ![Pasted image 20230114213227.png](assets/Pasted-image-20230114213227.png)
 
-返回体结构中包含请求时间，默认时区为 `Asia/Shanghai`。因为使用的是 `@JsonFormat` 来格式化字段，所有您可以很方便地在 `application` 配置文件中进行修改，注意目前您只能修改时区。
+返回体结构中包含请求时间，默认时区为 `Asia/Shanghai`。因为使用的是 `@JsonFormat` 来格式化字段，所以您可以很方便地在 `application` 配置文件中进行修改，注意目前您只能修改时区。
 
 ```
 # @JsonFormat: set time zone  
