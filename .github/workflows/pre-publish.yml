@@ -6,6 +6,8 @@ on:
       - response-handler-*
     branch:
       - main
+    tags-ignore:
+      - v*
   workflow_dispatch:
   pull_request:
     types: [open]
@@ -16,6 +18,7 @@ jobs:
     uses: ./.github/workflows/deploy-to-github.yml
     with:
       repository: "UNICKCHENG/maven-packages"
-      is_release: false
+      module: "response-handler-start"
+      is_release: ${{ startsWith(github.ref, 'refs/tags/v') }}
     secrets:
       access-token: ${{ secrets.ACTION_PAT }}
