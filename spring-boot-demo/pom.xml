@@ -54,7 +54,7 @@
         </dependency>
         <dependency>
             <groupId>io.github.unickcheng</groupId>
-            <artifactId>response-handler-exception-status-plugin</artifactId>
+            <artifactId>response-handler-custom-status-plugin</artifactId>
             <version>${response-handler.version}</version>
         </dependency>
     </dependencies>

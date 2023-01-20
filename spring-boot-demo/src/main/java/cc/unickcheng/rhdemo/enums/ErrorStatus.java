@@ -23,6 +23,7 @@ import org.springframework.http.HttpStatus;
 public enum ErrorStatus {
 
     OTHER_ERROR_A(HttpStatus.BAD_REQUEST, 30777, "There is an error!");
+    // 变量名和变量类似必须一致
     private final HttpStatus httpStatus;
     private final int code;
     private final String message;

@@ -62,8 +62,17 @@ public class ExceptionStatusProcessor extends AbstractProcessor {
                 messager.printMessage(Diagnostic.Kind.ERROR,
                         String.format("%s error: @%s must be used for a enum.", element.getSimpleName(), annotations));
             }
+            // 增加 import
             addImportPackage(element, "io.github.unickcheng.rhandler.exception.ExceptionStatus");
-            addGetMethodForVariables(element);
+            // 增加需要的成员变量
+
+            // 增加 get 方法
+             addGetMethodForVariables(element);
+
+            // 增加构造方法
+
+            // 增加 HttpStatus 缺省的构造方法
+
         });
         return true;
     }
