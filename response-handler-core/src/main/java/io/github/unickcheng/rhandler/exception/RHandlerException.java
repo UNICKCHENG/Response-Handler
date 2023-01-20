@@ -36,7 +36,8 @@ public class RHandlerException extends RuntimeException {
     }
 
     public RHandlerException () {
-        throw new RuntimeException();
+        HttpStatus status = HttpStatus.INTERNAL_SERVER_ERROR;
+        throw new RHandlerException(status, new ResponseDomain(status.value(), status.getReasonPhrase()));
     }
 
     public RHandlerException (String message) {
@@ -106,6 +107,6 @@ public class RHandlerException extends RuntimeException {
      * @return 最终的错误提示信息
      */
     private String getReplaceMessage (String message, String extraMessage, boolean isReplaceMessage) {
-        return isReplaceMessage ? message : String.format("%s %s", message, extraMessage);
+        return isReplaceMessage ? extraMessage : String.format("%s. %s", message, extraMessage);
     }
 }

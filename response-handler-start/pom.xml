@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>response-handler-start</artifactId>
+    <packaging>jar</packaging>
     <url>https://github.com/UNICKCHENG/Response-Handler</url>
     <description>A maven dependency that handles response body, catches exceptions, supports for openapi.</description>
 

@@ -43,31 +43,29 @@ public class DemoController {
         return data;
     }
 
-    @PostMapping("/error")
+    @PostMapping("/error/runtime")
     public void error() {
         throw new RuntimeException("RuntimeException !");
     }
-
-    @PostMapping("/v1/error")
-    public void CustomException() {
+    @PostMapping("/error/custom/1")
+    public void customException() {
         throw new RHandlerException(HttpStatus.BAD_REQUEST, "There is an error!");
     }
-
-    @PostMapping("/v2/error")
-    public void CustomExceptionV2() {
+    @PostMapping("/error/custom/2")
+    public void customException2() {
         throw new RHandlerException(ReturnStatus.CUSTOM_ERROR);
     }
-    @PostMapping("/v3/error")
-    public void CustomExceptionV3() {
+    @PostMapping("/error/custom/3")
+    public void customException3() {
         throw new RHandlerException(HttpStatus.BAD_REQUEST);
     }
-    @PostMapping("/v4/error")
-    public void CustomExceptionV4() {
+    @PostMapping("/error/custom/4")
+    public void customException4() {
         throw new RHandlerException();
     }
-    @PostMapping("/v5/error")
-    public void CustomExceptionV5() {
-        throw new RHandlerException("this is a test");
+    @PostMapping("/error/custom/5")
+    public void customException5() {
+        throw new RHandlerException("There is an error!");
     }
 
     @GetMapping("/num/{id}")
