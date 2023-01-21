@@ -58,14 +58,11 @@ You can run spring boot for spring-boot-demo. Once you have modified the code in
 If you prefer to operate from the command line, you can execute the following command in the Response-Handler root directory after you have modified the code
 
 ```bash
-# Update dependency packages
-mvn clean package
-
-# Verify that the test can be run through
-mvn clean test -f spring-boot-demo/pom.xml
+# run spring boot
+mvn spring-boot:run -f spring-boot-demo/pom.xml
 ```
 
-If there are no errors in `mvn clean test -f spring-boot-demo/pom.xml`, feel free to submit a PR to [Response-Handler](https://github.com/UNICKCHENG/Response) after git push to your repository of the same name. 
+Finally,  when the `mvn clean test -f spring-boot-demo/pom.xml` command is executed without errors, feel free to submit a PR to [Response-Handler](https://github.com/UNICKCHENG/Response) after git push to your repository of the same name. 
 
 > Note that the `mvn clean test` error means there is a problem in your code, please check it carefully and do not use `-Dmaven.test.skip=true` to skip the test
 
@@ -131,20 +128,14 @@ mvn install -f Response-Handler/spring-boot-demo/pom.xml
 如果您喜欢通过命令行操作，请您修改完代码后，可以在 Response-Handler 根目录执行下述命令
 
 ```bash
-# 更新依赖包
-mvn clean package
-
-# 验证是否可以跑通测试
-mvn clean test -f spring-boot-demo/pom.xml
+# 运行 spring boot 
+mvn spring-boot:run -f spring-boot-demo/pom.xml
 ```
 
-如果 `mvn clean test -f spring-boot-demo/pom.xml` 没有任何错误，在 git 提交到您的同名仓库后，欢迎顺手提个 PR 到 [Response-Handler](https://github.com/UNICKCHENG/Response-Handler)。
+最后，如果执行 `mvn clean test -f spring-boot-demo/pom.xml` 没有任何错误，在 git 提交到您的同名仓库后，欢迎顺手提个 PR 到 [Response-Handler](https://github.com/UNICKCHENG/Response-Handler)。
 
 > 注意，`mvn clean test` 报错说明您的代码中存在问题，请仔细排查，不要使用 `-Dmaven.test.skip=true` 来跳过测试
 
-
-
-  
 
 
 [^1]: https://docs.github.com/zh/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request
