@@ -1,4 +1,5 @@
 .obsidian
+.trash
 target/
 .flattened-pom.xml
 maven-repo/

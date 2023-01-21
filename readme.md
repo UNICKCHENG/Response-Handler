@@ -2,6 +2,8 @@ Hi, there 👇
 
 我正在写一个 Maven 依赖，只需一个注解，就能搞定接口返回格式，以及异常处理。
 
+如果您对这个项目感兴趣，欢迎来一起孵化它，详细操作可见 [How to contribute](contributing.md)
+
 ![](assets/restful-api.gif)
 
 ## ✨特征
@@ -90,5 +92,5 @@ throw new CommonException(HttpStatus.BAD_REQUEST);
 ## 💖 感谢
 
 - [Spring Boot](https://spring.io/projects/spring-boot) 提供的框架支持
-- [开源依赖](https://github.com/UNICKCHENG/Response-Handler/network/dependencies)提供的支持
+- [开源依赖](https://github.com/UNICKCHENG/Response-Handler/network/dependencies) 提供的支持
 - 感谢所有开源项目分享的想法和技术
