@@ -8,7 +8,7 @@ If you are interested in this project, you are welcome to incubate this project 
 - Problems or pain points encountered in the actual use
 - etc...
 
-You can raise an Issue or a Pull Request (PR) [^1] for the above issue. If you're not sure how to submit a PR, here's how to do it
+You can submit an Issue or a Pull Request (PR) [^1] for the above issue. If you're not sure how to submit a PR, here's how to do it
 
 1. Click Fork in the upper-right corner. This step will create a repository with the same name in your GitHub repository list.
 2. Make changes to the code in this same repository
@@ -65,7 +65,7 @@ mvn clean package
 mvn clean test -f spring-boot-demo/pom.xml
 ```
 
-If there are no errors in `mvn clean test -f spring-boot-demo/pom.xml`, feel free to mention a PR to [Response-Handler](https://github.com/UNICKCHENG/Response) after git commits to your repository of the same name. -Handler.
+If there are no errors in `mvn clean test -f spring-boot-demo/pom.xml`, feel free to submit a PR to [Response-Handler](https://github.com/UNICKCHENG/Response) after git push to your repository of the same name. 
 
 > Note that the `mvn clean test` error means there is a problem in your code, please check it carefully and do not use `-Dmaven.test.skip=true` to skip the test
 
