@@ -6,7 +6,6 @@
 package io.github.unickcheng.rhandler.exception;
 
 import io.github.unickcheng.rhandler.response.ResponseDomain;
-import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 /**
@@ -19,7 +18,6 @@ import org.springframework.http.HttpStatus;
  * @since jdk 1.8
  */
 
-@Getter
 public class RHandlerException extends RuntimeException {
 
     private final HttpStatus httpStatus;
@@ -108,5 +106,12 @@ public class RHandlerException extends RuntimeException {
      */
     private String getReplaceMessage (String message, String extraMessage, boolean isReplaceMessage) {
         return isReplaceMessage ? extraMessage : String.format("%s. %s", message, extraMessage);
+    }
+
+    public HttpStatus getHttpStatus () {
+        return this.httpStatus;
+    }
+    public ResponseDomain getResponseDomain () {
+        return this.responseDomain;
     }
 }
