@@ -71,12 +71,12 @@ spring.jackson.time-zone=Asia/Shanghai
 
 可参考 [ReturnStatus.java](spring-boot-demo/src/main/java/cc/unickcheng/rhdemo/enums/ReturnStatus.java) 对 `ResponseStatus` 接口进行覆写，之后只需在相应的方法内抛出自定义异常即可
 ```java
-throw new CommonException(ReturnStatus.CUSTOM_ERROR);
+throw new RHandlerException(ReturnStatus.CUSTOM_ERROR);
 ```
 
 如果您暂时没有这方面的需求，建议您使用 `org.springframework.http.HttpStatus` 作为状态码进行快速开发。简单来说，您无需增加额外的操作，只需在相应的方法内抛出类似于下述代码的异常
 ```java
-throw new CommonException(HttpStatus.BAD_REQUEST);
+throw new RHandlerException(HttpStatus.BAD_REQUEST);
 ```
 
 ## ✍️ 日志
