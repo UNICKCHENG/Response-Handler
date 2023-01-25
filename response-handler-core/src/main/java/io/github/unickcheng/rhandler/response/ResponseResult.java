@@ -23,6 +23,7 @@ import java.util.HashMap;
  * @author unickcheng
  */
 
+@SuppressWarnings("unused")
 public class ResponseResult extends ResponseDomain {
 
     ResponseResult(int status, String message, Object data) {

@@ -32,6 +32,7 @@ import java.util.TimeZone;
 
 //@RestControllerAdvice(annotations = {RHandlerResponseBody.class})
 @RestControllerAdvice
+@SuppressWarnings("NullableProblems")
 public class ResponseAdvice implements ResponseBodyAdvice<Object> {
 
     @Value("${spring.jackson.time-zone}")
