@@ -9,12 +9,13 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>response-handler-plugin</artifactId>
+    <artifactId>response-handler-plus</artifactId>
     <packaging>pom</packaging>
     <description>All plugin groups of response-handler</description>
 
     <modules>
-        <module>response-handler-custom-status-plugin</module>
+        <!-- <module>response-handler-customstatus</module> -->
+        <module>response-handler-starter</module>
     </modules>
 
     <dependencyManagement>

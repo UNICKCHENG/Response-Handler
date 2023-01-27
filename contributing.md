@@ -4,7 +4,7 @@ If you are interested in this project, you are welcome to incubate this project 
 
 - There are typos or unclear expressions in the documentation or comments
 - There are security risks in the code or dependencies, or lack of checksum and other abnormal judgments
-- Submit a new plugin
+- Enhancement of `response-handler` function
 - Problems or pain points encountered in the actual use
 - etc...
 
@@ -14,11 +14,13 @@ You can submit an Issue or a Pull Request (PR) [^1] for the above issue. If you'
 2. Make changes to the code in this same repository
 3. GitHub will automatically display a PR (Pull Request) prompt
 
-## Submit a new plugin
+## Enhancement of `response-handler` function
 
-If you wish to create a new plugin module in order to implement your requirements. Please Fork and create a new submodule in the response-handler-plugin directory, see  [response-handler-custom-status-plugin](https://github.com/UNICKCHENG/Response-Handler/tree/main/response-handler-plugin/response-handler-custom-status-plugin), and submit a PR to [Response-Handler](https://github.com/UNICKCHENG/Response-Handler) once you have successfully modified and debugged the code locally.  
+If you have new requirements, you can develop `response-handler` twice, or create new submodules in the `response-handler-plus` directory after `Fork`, see  [response-handler-custom-status-plugin](https://github.com/UNICKCHENG/Response-Handler/tree/main/response-handler-plus/response-handler-customstatus), and submit a PR to [Response-Handler](https://github.com/UNICKCHENG/Response-Handler) once you have successfully modified and debugged the code locally.  
+
+However, I would recommend that **you create a new project of your own and import the `response-handler-core` module in the new project**. Finally, submit an [issue](https://github.com/UNICKCHENG/Response-Handler/issues) to the Response-Handler.
   
-Note: If you need to import response-handler dependencies in your new submodule, please do not introduce response-handler-start module, but use response-handler-core or reponse-handler-*-plugin dependencies.  
+Note: If you need to import response-handler dependencies in your new submodule, please do not use `response-handler-start module`, but use `response-handler-core`.  
 
 ```xml
 <dependency>
@@ -75,7 +77,7 @@ Finally,  when the `mvn clean test -f spring-boot-demo/pom.xml` command is execu
 
 - 文档或注释中存在错别字、表述不清晰等情况
 - 代码或依赖存在安全隐患，或缺少校验等异常判断
-- 提交新的插件
+- 增强 `response-handler` 周边
 - 在实际使用中，碰到的问题或痛点
 - 等等...
 
@@ -84,11 +86,13 @@ Finally,  when the `mvn clean test -f spring-boot-demo/pom.xml` command is execu
 2. 对这个同名仓库中的代码进行修改
 3. 此时，GitHub 会自动出现 PR（Pull Request）提示
 
-## 提交新的插件
+## 增强 `response-handler` 周边
 
-如果您希望创建新的插件模块，以便实现您的需求。请 `Fork` 后，在 `response-handler-plugin` 目录下创建新的子模块，可参考 [response-handler-custom-status-plugin](https://github.com/UNICKCHENG/Response-Handler/tree/main/response-handler-plugin/response-handler-custom-status-plugin)。在本地修改和调试代码成功后，向 [Response-Handler](https://github.com/UNICKCHENG/Response-Handler) 提个 PR 即可
+您可以基于新的需求针对 `response-handler` 二次开发，或者 `Fork` 后，在 `response-handler-plus` 目录下创建新的子模块，可参考 [response-handler-customstatus](response-handler-plus/response-handler-customstatus/pom.xml)。在本地修改和调试代码成功后，向 [Response-Handler](https://github.com/UNICKCHENG/Response-Handler) 提个 PR 即可。
 
-注意：如果在您新建的子模块中需要引入 `response-handler` 依赖，请不要引入 `response-handler-start` 模块，而是使用 `response-handler-core` 或者 `reponse-handler-*-plugin` 等依赖
+不过我更推荐您，**新建一个自己的项目，然后在新项目中导入 `response-handler-core` 模块**，最后再向 [Response-Handler](https://github.com/UNICKCHENG/Response-Handler) 提个 [Issues](https://github.com/UNICKCHENG/Response-Handler/issues)。
+
+注意：如果在您新建的子模块中需要引入 `response-handler` 依赖，请不要引入 `response-handler-starter` 模块，而是使用 `response-handler-core` 依赖。
 
 ```xml
 <dependency>
@@ -97,6 +101,7 @@ Finally,  when the `mvn clean test -f spring-boot-demo/pom.xml` command is execu
     <version>${project.version}</version>
 </dependency>
 ```
+
 
 
 ## 如何在本地开发和调试代码

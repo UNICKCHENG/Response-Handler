@@ -14,7 +14,7 @@
     <description>A maven dependency that handles response body, catches exceptions, supports for openapi.</description>
 
     <properties>
-        <revision>0.2.0-SNAPSHOT</revision>
+        <revision>0.2.0</revision>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -25,8 +25,7 @@
     <modules>
         <module>response-handler-dependencies</module>
         <module>response-handler-core</module>
-        <module>response-handler-plugin</module>
-        <module>response-handler-start</module>
+        <module>response-handler-plus</module>
     </modules>
 
     <licenses>

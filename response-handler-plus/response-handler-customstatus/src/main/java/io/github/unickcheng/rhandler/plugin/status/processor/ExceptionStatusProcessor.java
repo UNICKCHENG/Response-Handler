@@ -33,6 +33,7 @@ import java.util.Set;
  * @author unickcheng
  */
 
+@Deprecated
 @AutoService(Processor.class)
 @SupportedSourceVersion(SourceVersion.RELEASE_8)
 @SupportedAnnotationTypes({"io.github.unickcheng.rhandler.plugin.status.annotation.*"})

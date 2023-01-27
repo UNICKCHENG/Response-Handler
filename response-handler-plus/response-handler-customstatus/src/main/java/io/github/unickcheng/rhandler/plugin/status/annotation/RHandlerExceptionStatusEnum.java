@@ -14,6 +14,7 @@ import java.lang.annotation.*;
  * @author unickcheng
  */
 
+@Deprecated
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.SOURCE)
 public @interface RHandlerExceptionStatusEnum {

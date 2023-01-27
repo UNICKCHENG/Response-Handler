@@ -23,8 +23,8 @@ Hi, there 👇
 ```xml
 <dependency>
     <groupId>io.github.unickcheng</groupId>
-    <artifactId>response-handler-start</artifactId>
-    <version>0.2.0-SNAPSHOT</version>
+    <artifactId>response-handler-starter</artifactId>
+    <version>0.2.0</version>
 </dependency>
 ```
 > ⚠️ASAP: 目前暂未提交到中央仓库，请在 pom.xml 中增加「GitHub 仓库地址」来获取依赖

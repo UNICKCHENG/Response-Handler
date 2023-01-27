@@ -2,29 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>response-handler</artifactId>
         <groupId>io.github.unickcheng</groupId>
+        <artifactId>response-handler-plus</artifactId>
         <version>${revision}</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>response-handler-start</artifactId>
+    <artifactId>response-handler-starter</artifactId>
     <packaging>jar</packaging>
     <url>https://github.com/UNICKCHENG/Response-Handler</url>
     <description>A maven dependency that handles response body, catches exceptions, supports for openapi.</description>
-
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>io.github.unickcheng</groupId>
-                <artifactId>response-handler-dependencies</artifactId>
-                <version>${project.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -33,7 +21,15 @@
             <version>${project.version}</version>
         </dependency>
 
-        <!--  ### other  dependency ### -->
+        <!-- swagger 3 -->
+        <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-springdoc-ui</artifactId>
+        </dependency>
         <!-- devtools hot loading -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
