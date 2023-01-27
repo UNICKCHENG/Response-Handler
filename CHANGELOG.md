@@ -1,3 +1,15 @@
+# [0.2.0](https://github.com/UNICKCHENG/Response-Handler/compare/v0.2.0-SNAPSHOT...v0.2.0) (2023-01-27)
+
+
+### Bug Fixes
+
+* **annotation:** close @NotNULL annotation warning ([5a39b03](https://github.com/UNICKCHENG/Response-Handler/commit/5a39b036353b0374a19d3ce54b3994d4dc8da7ef))
+* **command:** fix mvn spring-boot:run not be supported ([d3f8793](https://github.com/UNICKCHENG/Response-Handler/commit/d3f8793b0835e4347ebc429166efaab0d446d2ff))
+* **javadoc:** GitHub repository is not supported ([03877fa](https://github.com/UNICKCHENG/Response-Handler/commit/03877fa68c967704d22db40c27537dcedcdd15ee))
+* **unknown:** fix a warning about javax.annotation.meta.When.MAYBE ([ae2e961](https://github.com/UNICKCHENG/Response-Handler/commit/ae2e961a1db7df8701e49969dc10b9c697133bf8))
+
+
+
 # [0.2.0-SNAPSHOT](https://github.com/UNICKCHENG/Response-Handler/compare/v0.0.1...v0.2.0-SNAPSHOT) (2023-01-20)
 
 Hi, the response-handler-start module has been added and the import method has been changed to the following. Please do not use the latest version by importing response-handler-core
