@@ -34,7 +34,7 @@ jobs:
     uses: ./.github/workflows/deploy-to-github.yml
     with:
       repository: "UNICKCHENG/maven-packages"
-      module: "response-handler-start"
+      module: "response-handler-plus/response-handler-starter"
       is_release: ${{ startsWith(github.ref, 'refs/tags/v') }}
     secrets:
       access-token: ${{ secrets.ACTION_PAT }}

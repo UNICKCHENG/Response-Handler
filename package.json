@@ -5,8 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy:ossrh": "mvn clean deploy -P release",
-    "deploy:github": "mvn clean deploy -P github -am -pl response-handler-core -DCI_RELEASE_URL=https://maven.pkg.github.com/UNICKCHENG/Response-Handler",
-
+    "deploy:github": "mvn clean deploy -P github -amd -pl response-handler-plus/response-handler-starter -DCI_RELEASE_URL=https://maven.pkg.github.com/UNICKCHENG/Response-Handler",
     "version": "mvn versions:set-property -Dproperty=revision -DnewVersion=%npm_package_version%",
     "tag": "git add pom.xml package.json CHANGELOG.md && git commit -m \"ci: v%npm_package_version%\" && git tag v%npm_package_version%",
     "chagelog": "standard-changelog",
