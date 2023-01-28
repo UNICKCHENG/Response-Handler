@@ -1,8 +1,4 @@
-<center> <h1>欢迎来到 Response-Handler 👋</h1></center>
-
-[English Version](readme.md)
-
-[![publish](https://img.shields.io/github/actions/workflow/status/UNICKCHENG/Response-Handler/publish.yml?label=publish&style=plastic)](https://github.com/UNICKCHENG/Response-Handler/actions/workflows/publish.yml) [![](https://img.shields.io/github/package-json/v/UNICKCHENG/Response-Handler?color=blue&label=version&style=plastic)](https://github.com/UNICKCHENG/Response-Handler/tags)
+<h1 align="center">欢迎来到 Response-Handler 👋</h1>
 
 ## 更新 2023-01-28
 
