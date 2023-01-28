@@ -1,25 +1,11 @@
-Hi, there 👇
+<center> <h1>Welcome to Response-Handler 👋</h1></center>
 
-我正在写一个 Maven 依赖，只需一个注解，就能搞定接口返回格式，以及异常处理。
+[![publish](https://img.shields.io/github/actions/workflow/status/UNICKCHENG/Response-Handler/publish.yml?label=publish&style=plastic)](https://github.com/UNICKCHENG/Response-Handler/actions/workflows/publish.yml) [![](https://img.shields.io/github/package-json/v/UNICKCHENG/Response-Handler?color=blue&label=version&style=plastic)](https://github.com/UNICKCHENG/Response-Handler/tags)
 
-如果您对这个项目感兴趣，欢迎来一起孵化它，详细操作可见 [How to contribute](contributing.md)
+## Update 2023-01-28
 
-![](assets/restful-api.gif)
+You can now import the following dependencies in `pom.xml` to encapsulate your controller interface with the `@RHandlerResponseBody` annotation.
 
-## ✨特征
-
-- [X] 统一返回体格式
-- [X] 支持自动捕获常见异常，无需在抛出异常后再手动 catch
-- [X] 支持扩展自定义状态码
-- [x] 内置 OpenAPI 3，即 Swagger 3 的支持
-- [ ] 支持返回数据进行加密
-- [ ] 可从 Maven 中央仓库下载 ([OSSRH-87858](https://issues.sonatype.org/projects/OSSRH/issues/OSSRH-87858))
-
-## 🎉用法
-
-### 步骤1：引入依赖
-
-您需要先在 pom.xml 中添加下述依赖，然后执行 `mvn install` 下载依赖
 ```xml
 <dependency>
     <groupId>io.github.unickcheng</groupId>
@@ -27,9 +13,40 @@ Hi, there 👇
     <version>0.2.0</version>
 </dependency>
 ```
-> ⚠️ASAP: 目前暂未提交到中央仓库，请在 pom.xml 中增加「GitHub 仓库地址」来获取依赖
+
+---
+
+![](assets/restful-api.gif)
+
+Response-Handler is a unified interface the response body format for Spring developers. You can use a single annotation to take care of exception catching, data return, and OpenAPI 3. If you are interested in this project, feel free to incubate it together, details can be found in [How to contribute](contributing.md).
+
+## ✨ Features
+
+- [x] Unified response body format
+- [x] Support automatic catching of common exceptions, reducing the need to manually catch exceptions after they are thrown
+- [x] Support for extended custom status codes
+- [x] Built-in support for OpenAPI 3, i.e. Swagger 3
+- [x] Available for download from the Maven central repository ([OSSRH-87858](https://issues.sonatype.org/projects/OSSRH/issues/OSSRH-87858))
+- [ ] Support encryption of returned data (later consider using annotations to build in AES, RSA, SM and other encryption methods)
+
+## 🎉 Usage
+
+### Step 1: Adding dependencies
+
+You need to add the following dependency to pom.xml and then run `mvn install` to download this dependency, note that the version number may be out of date, you can check the latest version in the [Maven central repository](https://mvnrepository.com/artifact/io.github.unickcheng/response-handler-starter)
+
 ```xml
-<!--添加 GitHub 仓库地址-->
+<dependency>
+    <groupId>io.github.unickcheng</groupId>
+    <artifactId>response-handler-starter</artifactId>
+    <version>0.2.0</version>
+</dependency>
+```
+
+If you want to use the latest development version, you can append the GitHub repository address to pom.xml. Note that using the latest development version may have a number of instabilities
+
+```xml
+<!--Add the GitHub repository address-->
 <repositories>
     <repository>
         <id>unickcheng</id>
@@ -37,60 +54,63 @@ Hi, there 👇
     </repository>
 </repositories>
 ```
-### 步骤2：在控制器中追加注解
 
-当您在 Controller 层增加 `@RHandlerResponseBody` 注解，将会对当前接口进行封装
+### Step 2: Append annotations to the controller
+
+When you add the `@RHandlerResponseBody` annotation to the Controller, it will encapsulate the current interface
+
 ```java
 @RHandlerResponseBody
 ```
 
-您也可以使用下面的注解, 等价于 `@RestController` + `@RHandlerResponseBody`
+You can also use the following annotation, which is equivalent to `@RestController` + `@RHandlerResponseBody`
 ```java
 @RHandlerController
 ```
 
-如果您不知道如何开始，您可以参考或使用 [spring-boot-demo](spring-boot-demo) 来熟悉使用流程
+If you don't know how to get started, you can refer to or use [spring-boot-demo](spring-boot-demo/pom.xml) to familiarize yourself with the process
 
+## 😎 Extra play
 
-## 😎 扩展玩法
+### 1. web-side view of all interfaces
 
-### 1. 网页端查看所有接口
-
-请网页端访问 `http://<your-ip>:8080/swagger-ui/index.html`
+Please visit `http://<your-ip>:8080/openapi-ui.html` on the web side, if your port number is not the default 8080, please change it
 
 ![Pasted image 20230114213227.png](assets/Pasted-image-20230114213227.png)
 
-返回体结构中包含请求时间，默认时区为 `Asia/Shanghai`。因为使用的是 `@JsonFormat` 来格式化字段，所以您可以很方便地在 `application` 配置文件中进行修改，注意目前您只能修改时区。
+The response body structure contains the request time, and the default time zone is `Asia/Shanghai`. Since the field is formatted with `@JsonFormat`, you can easily change it in the `application` configuration file, note that you can only change the time zone at the moment
 
 ```
 # @JsonFormat: set time zone  
 spring.jackson.time-zone=Asia/Shanghai
 ```
 
-### 2. 根据业务自定义响应体状态码信息
+### 2. Custom the response body status code information
 
-可参考 [ReturnStatus.java](spring-boot-demo/src/main/java/cc/unickcheng/rhdemo/enums/ReturnStatus.java) 对 `ResponseStatus` 接口进行覆写，之后只需在相应的方法内抛出自定义异常即可
+This part uses the factory design pattern, where you simply implement the `ExceptionStatusInfo` interface to encapsulate a custom status code enumeration class, and then throw a custom exception in the appropriate method, see [ReturnStatus.java](spring-boot-demo/src/main/java/cc/unickcheng/rhdemo/enums/ReturnStatus.java) 
+
 ```java
 throw new RHandlerException(ReturnStatus.CUSTOM_ERROR);
 ```
 
-如果您暂时没有这方面的需求，建议您使用 `org.springframework.http.HttpStatus` 作为状态码进行快速开发。简单来说，您无需增加额外的操作，只需在相应的方法内抛出类似于下述代码的异常
+If you don't need this for now, i recommend using `org.springframework.http.HttpStatus` as a status code for quick development. In short, you don't need to add additional actions, just throw exceptions like the following code in the corresponding method
+
 ```java
 throw new RHandlerException(HttpStatus.BAD_REQUEST);
 ```
 
-## ✍️ 日志
+## ✍️ ChangeLog
 
 - [CHANGELOG](CHANGELOG.md)
 
-## 👍 其他有趣的项目
+## 👍 Other interesting projects
 
 - [Sa-Token](https://github.com/dromara/sa-token)
 - [encrypt-body-spring-boot-starter](https://github.com/Licoy/encrypt-body-spring-boot-starter)
 - [lombok](https://github.com/projectlombok/lombok)
 
-## 💖 感谢
+## 💖 Credits
 
-- [Spring Boot](https://spring.io/projects/spring-boot) 提供的框架支持
-- [开源依赖](https://github.com/UNICKCHENG/Response-Handler/network/dependencies) 提供的支持
-- 感谢所有开源项目分享的想法和技术
+- [Spring Boot](https://spring.io/projects/spring-boot) provides framework support
+- [Open Source Dependencies](https://github.com/UNICKCHENG/Response-Handler/network/dependencies) provides support
+- Thanks to all open source projects for sharing ideas and techniques
