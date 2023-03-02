@@ -17,7 +17,7 @@
  * GitHub https://github.com/UNICKCHENG/Response-Handler
  */
 
-package io.github.unickcheng.rhandler.starter;
+package io.github.unickcheng.rhandler.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -32,7 +32,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class SwaggerConfig {
     @Bean
-    public OpenAPI customOpenAPI() {
+    public OpenAPI defauoltCustomOpenAPI() {
         return new OpenAPI()
                 .info(new Info()
                         .title("unickcheng demo api")

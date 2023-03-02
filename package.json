@@ -1,6 +1,6 @@
 {
   "name": "response-handler",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A maven dependency that handles response body, catches exceptions, supports for openapi.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

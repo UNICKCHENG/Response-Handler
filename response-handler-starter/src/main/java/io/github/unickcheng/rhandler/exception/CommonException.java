@@ -19,6 +19,7 @@ import javax.validation.constraints.NotEmpty;
 
 @Deprecated
 @Getter
+@SuppressWarnings("unused")
 public class CommonException extends RuntimeException {
     @NotEmpty(message = "异常错误码不可为空")
     private final int code;

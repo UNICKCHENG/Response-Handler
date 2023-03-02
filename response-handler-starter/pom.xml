@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>response-handler-core</artifactId>
+    <artifactId>response-handler-starter</artifactId>
     <packaging>jar</packaging>
     <description>The core module which supports RESTful API, exception handler, openapi</description>
 
@@ -35,6 +35,10 @@
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
         </dependency>
     </dependencies>
 
