@@ -1,13 +1,17 @@
 {
   "name": "response-handler",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "A maven dependency that handles response body, catches exceptions, supports for openapi.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "deploy:ossrh": "mvn clean deploy -P release",
     "deploy:github": "mvn clean deploy -P github -amd -pl response-handler-plus/response-handler-starter -DCI_RELEASE_URL=https://maven.pkg.github.com/UNICKCHENG/Response-Handler",
-    "version": "mvn versions:set-property -Dproperty=revision -DnewVersion=%npm_package_version%",
-    "tag": "git add pom.xml package.json CHANGELOG.md && git commit -m \"ci: v%npm_package_version%\" && git tag v%npm_package_version%",
+
+    "version": "run-p package-version demo-version",
+    "package-version": "mvn versions:set-property -Dproperty=revision -DnewVersion=%npm_package_version%",
+    "demo-version": "cd spring-boot-demo && mvn versions:set-property -Dproperty=response-handler.version -DnewVersion=%npm_package_version%",
+
+    "tag": "git add pom.xml **/pom.xml package.json CHANGELOG.md && git commit -m \"ci: v%npm_package_version%\" && git tag v%npm_package_version%",
     "chagelog": "standard-changelog",
     "no-deploy": "run-s version chagelog tag",
     "deploy": "npm-run-all no-release --parallel release:ossrh release:github"

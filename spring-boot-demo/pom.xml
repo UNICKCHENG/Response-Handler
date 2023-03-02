@@ -9,6 +9,7 @@
     <version>0.0.0-SNAPSHOT</version>
 
     <properties>
+        <response-handler.version>0.2.2</response-handler.version>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -49,7 +50,7 @@
         <dependency>
             <groupId>io.github.unickcheng</groupId>
             <artifactId>response-handler-starter</artifactId>
-            <version>0.3.0</version>
+            <version>${response-handler.version}</version>
         </dependency>
     </dependencies>
 
@@ -81,6 +82,15 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring-boot.version}</version>
+            </plugin>
+            <!-- update version number -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.15.0</version>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
             </plugin>
         </plugins>
     </build>

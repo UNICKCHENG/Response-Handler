@@ -14,7 +14,7 @@
     <description>A maven dependency that handles response body, catches exceptions, supports for openapi.</description>
 
     <properties>
-        <revision>0.2.1</revision>
+        <revision>0.2.2</revision>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
