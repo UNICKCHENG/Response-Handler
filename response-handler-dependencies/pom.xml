@@ -17,7 +17,7 @@
 
     <properties>
         <response-handler-spring-boot.version>2.7.12</response-handler-spring-boot.version>
-        <response-handler-lombok.versin>1.18.26</response-handler-lombok.versin>
+        <response-handler-lombok.versin>1.18.28</response-handler-lombok.versin>
         <response-handler-swagger.version>1.7.0</response-handler-swagger.version>
         <response-handler-knife4j.versin>3.0.3</response-handler-knife4j.versin>
         <response-handler-hutool.version>5.8.19</response-handler-hutool.version>
