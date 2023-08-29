@@ -1,0 +1,3 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+io.github.unickcheng.rhandler.config.ResponseHandlerAutoConfiguration,\
+io.github.unickcheng.rhandler.config.SwaggerTemplateConfiguration
