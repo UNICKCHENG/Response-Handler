@@ -1,3 +1,21 @@
+# [0.3.0](https://github.com/UNICKCHENG/Response-Handler/compare/v0.2.2...v0.3.0) (2023-08-29)
+
+To achieve unified encapsulation and enable Swagger, you just need to import the following dependencies in your `pom.xml`. The more usage can be found in the [spring-boot-demo](./spring-boot-demo).
+
+```xml
+<dependency>
+    <groupId>io.github.unickcheng</groupId>
+    <artifactId>response-handler-starter</artifactId>
+    <version>0.3.0</version>
+</dependency>
+```
+
+### Bug Fixes
+
+* support returning body ([cf1aba9](https://github.com/UNICKCHENG/Response-Handler/commit/cf1aba9676d684aca257b05b24a37c3bd62362aa))
+
+
+
 ## [0.2.2](https://github.com/UNICKCHENG/Response-Handler/compare/v0.2.1...v0.2.2) (2023-03-02)
 
 
