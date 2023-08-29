@@ -17,7 +17,7 @@ import java.util.HashMap;
  * 目前默认状态码(status)和状态提示信息(message)与 {@link org.springframework.http.HttpStatus HTTP 状态码 } 保持一致。
  * 当然，如果您有自定义状态码的需求，可以使用 {@link #customStatus} 作为自定义状态码的接口 <br/>  <br/>
  *
- * 提供三种根据具体场景下的调用 {@link #success()} {@link #success(Object)} {@link #badRequest()}
+ * 提供三种根据具体场景下的调用 {{@link #success(Object)} {@link #badRequest()}
  * @see ResponseDomain 返回体结构
  * @see org.springframework.http.ResponseEntity 更强大的封装
  * @author unickcheng
@@ -30,11 +30,7 @@ public class ResponseResult extends ResponseDomain {
         super(status, message, data);
     }
 
-    // POST, PUT, DELETE 请求成功
-    public static ResponseResult success() {
-        return status(HttpStatus.OK).build();
-    }
-    // GET 请求成功
+    // GET POST, PUT, DELETE  请求成功, data 支持 null
     public static ResponseResult success(Object data) {
         return status(HttpStatus.OK).build(data);
     }
@@ -94,7 +90,7 @@ public class ResponseResult extends ResponseDomain {
 
         @Override
         public ResponseResult build(Object data) {
-            return new ResponseResult(this.status, this.message, null == data ? new HashMap<>() : data);
+            return new ResponseResult(this.status, this.message, data);
         }
 
         @Override

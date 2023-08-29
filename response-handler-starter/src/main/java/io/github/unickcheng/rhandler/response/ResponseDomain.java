@@ -36,7 +36,7 @@ public class ResponseDomain {
     @NotBlank(message = "请求返回信息 message 不可为空")
     private final String message;
 
-    @Schema(name = "请求返回值", description = "POST PUT DELETE EXCEPTION 等操作不返回该字段")
+    @Schema(name = "请求返回值", description = "POST PUT DELETE EXCEPTION 等操作如果该字段为空, 则不回显该字段")
     private final Object data;
 
     public ResponseDomain (int status, String message, Object data) {

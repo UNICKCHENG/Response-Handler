@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 
 import javax.validation.constraints.NotNull;
+import java.util.HashMap;
 import java.util.TimeZone;
 
 /**
@@ -77,8 +78,7 @@ public class ResponseAdvice implements ResponseBodyAdvice<Object> {
             return ResponseResult.status(res.getServletResponse().getStatus()).build();
         }
 
-        // 针对 GET POST PUT DELETE 不同请求处理
-        return  "GET".equals(request.getMethodValue()) ? ResponseResult.success(body) : ResponseResult.success();
+        return ResponseResult.success(body);
     }
 }
 
