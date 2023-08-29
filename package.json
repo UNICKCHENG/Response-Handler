@@ -12,8 +12,8 @@
     "demo-version": "cd spring-boot-demo && mvn versions:set-property -Dproperty=response-handler.version -DnewVersion=%npm_package_version%",
 
     "tag": "git add pom.xml **/pom.xml package.json CHANGELOG.md && git commit -m \"ci: v%npm_package_version%\" && git tag v%npm_package_version%",
-    "chagelog": "standard-changelog",
-    "no-deploy": "run-s version chagelog tag",
+    "changelog": "standard-changelog",
+    "no-deploy": "run-s version changelog tag",
     "deploy": "npm-run-all no-release --parallel release:ossrh release:github"
   },
   "repository": {

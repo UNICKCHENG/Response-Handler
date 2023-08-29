@@ -27,7 +27,7 @@ jobs:
           key: ${{ runner.os }}-maven-local-repository
 
       - name: Start validation
-        run: cd spring-boot-demo; mvn test
+        run: mvn clean install -U && mvn clean test -f spring-boot-demo/pom.xml
 
   deploy-to-github:
     needs: [validated]
