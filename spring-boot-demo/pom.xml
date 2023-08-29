@@ -9,7 +9,7 @@
     <version>0.0.0-SNAPSHOT</version>
 
     <properties>
-        <response-handler.version>0.2.2</response-handler.version>
+        <response-handler.version>0.3.0</response-handler.version>
         <java.version>1.8</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>

@@ -1,15 +1,15 @@
 
 <h1 align="center">Welcome to Response-Handler 👋</h1>
 
-## Update 2023-01-28
+## Update 2023-08-29
 
-You can now import the following dependencies in `pom.xml` to encapsulate your controller interface with the `@RHandlerResponseBody` annotation.
+To achieve unified encapsulation and enable Swagger, you just need to import the following dependencies in your `pom.xml`. The more usage can be found in the [spring-boot-demo](./spring-boot-demo).
 
 ```xml
 <dependency>
     <groupId>io.github.unickcheng</groupId>
     <artifactId>response-handler-starter</artifactId>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
 </dependency>
 ```
 
@@ -34,15 +34,13 @@ Response-Handler is a unified interface the response body format for Spring deve
 
 ## 🎉 Usage
 
-### Step 1: Adding dependencies
-
 You need to add the following dependency to pom.xml and then run `mvn install` to download this dependency, note that the version number may be out of date, you can check the latest version in the [Maven central repository](https://mvnrepository.com/artifact/io.github.unickcheng/response-handler-starter)
 
 ```xml
 <dependency>
     <groupId>io.github.unickcheng</groupId>
     <artifactId>response-handler-starter</artifactId>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
 </dependency>
 ```
 
@@ -56,19 +54,6 @@ If you want to use the latest development version, you can append the GitHub rep
         <url>https://unickcheng.github.io/maven-packages/</url>
     </repository>
 </repositories>
-```
-
-### Step 2: Append annotations to the controller
-
-When you add the `@RHandlerResponseBody` annotation to the Controller, it will encapsulate the current interface
-
-```java
-@RHandlerResponseBody
-```
-
-You can also use the following annotation, which is equivalent to `@RestController` + `@RHandlerResponseBody`
-```java
-@RHandlerController
 ```
 
 If you don't know how to get started, you can refer to or use [spring-boot-demo](spring-boot-demo/pom.xml) to familiarize yourself with the process

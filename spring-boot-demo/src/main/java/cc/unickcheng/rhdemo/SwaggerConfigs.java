@@ -19,9 +19,15 @@ package cc.unickcheng.rhdemo;
 
 import org.springdoc.core.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
+import io.swagger.v3.oas.models.OpenAPI;
+import io.swagger.v3.oas.models.info.Info;
+
 /**
+ * 自定义 Swagger，将会覆盖掉默认的配置
+ * 
  * @author unickcheng
  * @since 2023-03-03
  */
@@ -34,5 +40,16 @@ public class SwaggerConfigs {
                 .group("demo-api")
                 .pathsToMatch("/**")
                 .build();
+    }
+
+    @Primary
+    @Bean
+    public OpenAPI demOpenAPI() {
+        return new OpenAPI()
+                .info(new Info()
+                        .title("spring boot demo")
+                        .version("0.3")
+                        .description(
+                                "This is based on swagger 3. You can see more details at https://github.com/UNICKCHENG/Response-Handler"));
     }
 }

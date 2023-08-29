@@ -1,14 +1,14 @@
 <h1 align="center">欢迎来到 Response-Handler 👋</h1>
 
-## 更新 2023-01-28
+## 更新 2023-08-29
 
-您现在可以在 `pom.xml` 中导入下述依赖，以便使用 `@RHandlerResponseBody` 注解对您的控制器接口进行封装。
+您现在只需在 `pom.xml` 中导入下述依赖，便可实现统一封装和开启 OpenAPI 3，具体样例可参考 [spring-boot-demo](./spring-boot-demo)
 
 ```xml
 <dependency>
     <groupId>io.github.unickcheng</groupId>
     <artifactId>response-handler-starter</artifactId>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
 </dependency>
 ```
 
@@ -30,14 +30,12 @@ Response-Handler 是为 Spring 开发者提供统一的接口返回格式，您�
 
 ## 🎉用法
 
-### 步骤1：引入依赖
-
 您需要先在 pom.xml 中添加下述依赖，然后执行 `mvn install` 下载依赖，注意版本号可能过时，您可以在 [Maven 中央仓库](https://mvnrepository.com/artifact/io.github.unickcheng/response-handler-starter) 查看最新的版本
 ```xml
 <dependency>
     <groupId>io.github.unickcheng</groupId>
     <artifactId>response-handler-starter</artifactId>
-    <version>0.2.0</version>
+    <version>0.3.0</version>
 </dependency>
 ```
 
@@ -51,20 +49,8 @@ Response-Handler 是为 Spring 开发者提供统一的接口返回格式，您�
     </repository>
 </repositories>
 ```
-### 步骤2：在控制器中追加注解
 
-当您在 Controller 层增加 `@RHandlerResponseBody` 注解，将会对当前接口进行封装
-```java
-@RHandlerResponseBody
-```
-
-您也可以使用下面的注解, 等价于 `@RestController` + `@RHandlerResponseBody`
-```java
-@RHandlerController
-```
-
-如果您不知道如何开始，您可以参考或使用 [spring-boot-demo](spring-boot-demo/pom.xml) 来熟悉使用流程
-
+如果您不知道如何开始，您可以参考或使用 [spring-boot-demo](./spring-boot-demo) 来熟悉使用流程
 
 ## 😎 扩展玩法
 
