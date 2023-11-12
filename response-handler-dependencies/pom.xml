@@ -20,7 +20,7 @@
         <response-handler-lombok.versin>1.18.30</response-handler-lombok.versin>
         <response-handler-swagger.version>1.7.0</response-handler-swagger.version>
         <response-handler-knife4j.versin>3.0.3</response-handler-knife4j.versin>
-        <response-handler-hutool.version>5.8.22</response-handler-hutool.version>
+        <response-handler-hutool.version>5.8.23</response-handler-hutool.version>
         <response-handler-auto-service.version>1.1.1</response-handler-auto-service.version>
     </properties>
 
